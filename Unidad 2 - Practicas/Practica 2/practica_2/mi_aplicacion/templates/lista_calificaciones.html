@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Calificaciones</title>
+</head>
+<body>
+    <h1>Lista de Calificaciones</h1>
+    <ul>
+        {% for calificacion in calificaciones %}
+            <li>Calificación ID: {{ calificacion.ID_Calificacion }} - Alumno: {{ calificacion.Alumno_ID.Nombre }} - Asignatura: {{ calificacion.Asignatura_ID.Nombre }} - Calificación: {{ calificacion.Calificacion }}
+                <a href="editar_calificacion/{{calificacion.ID_Calificacion}}"">Editar</a>
+                <a href="eliminar_calificacion/{{calificacion.ID_Calificacion}}"">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay calificaciones.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'nueva_calificacion' %}">Agregar Nueva Calificación</a>
+</body>
+</html>

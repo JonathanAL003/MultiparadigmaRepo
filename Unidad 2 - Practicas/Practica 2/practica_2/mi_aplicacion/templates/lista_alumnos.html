@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alumnos</title>
+</head>
+<body>
+    <h1>Lista de Alumnos</h1>
+    <ul>
+        {% for alumno in alumnos %}
+            <li>{{ alumno.ID_Alumno }} - {{ alumno.Nombre }} - {{ alumno.Grado }}
+                <a href="editar_alumno/{{alumno.ID_Alumno}}">Editar</a>
+                <a href="eliminar_alumno/{{alumno.ID_Alumno}}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay alumnos.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'nuevo_alumno' %}">Agregar Nuevo Alumno</a>
+</body>
+</html>

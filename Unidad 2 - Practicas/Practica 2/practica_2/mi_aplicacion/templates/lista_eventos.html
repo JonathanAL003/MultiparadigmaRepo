@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Eventos</title>
+</head>
+<body>
+    <h1>Lista de Eventos</h1>
+    <ul>
+        {% for evento in eventos %}
+            <li>Evento ID: {{ evento.ID_Evento }} - Nombre: {{ evento.Nombre }} - Fecha: {{ evento.Fecha }} - Responsable: {{ evento.Responsable_ID.Nombre }}
+                <a href="editar_evento/{{evento.ID_Evento}}">Editar</a>
+                <a href="eliminar_evento/{{evento.ID_Evento}}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay eventos.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'nuevo_evento' %}">Agregar Nuevo Evento</a>
+</body>
+</html>

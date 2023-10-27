@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Maestros</title>
+</head>
+<body>
+    <h1>Lista de Maestros</h1>
+    <ul>
+        {% for maestro in maestros %}
+            <li>{{maestro.ID_Maestro}} - {{ maestro.Nombre }} - {{ maestro.Materia }}
+                <a href="editar_maestro/{{maestro.ID_Maestro}}">Editar</a>
+                <a href="eliminar_maestro/{{maestro.ID_Maestro}}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay maestros.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'nueva_maestro' %}">Agregar Nuevo Maestro</a>
+</body>
+</html>

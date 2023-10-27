@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Asignaturas</title>
+</head>
+<body>
+    <h1>Lista de Asignaturas</h1>
+    <ul>
+        {% for asignatura in asignaturas %}
+            <li>{{ asignatura.ID_Asignatura }} - {{ asignatura.Nombre }} - {{ asignatura.Maestro_ID.Nombre }}
+                <a href="editar_asignatura/{{asignatura.ID_Asignatura}}">Editar</a>
+                <a href="eliminar_asignatura/{{asignatura.ID_Asignatura}}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay asignaturas.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'nueva_asignatura' %}">Agregar Nueva Asignatura</a>
+</body>
+</html>
