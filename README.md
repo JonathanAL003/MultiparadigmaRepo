@@ -1,6 +1,6 @@
 # INSTITUTO TECNOLOGICO DE NUEVO LAREDO
 
-## Programacion Multiparadogma:computer:
+## Programacion Multiparadigma:computer:
 Repositorio para la materia de Programacion Multiparadigma AGO-DIC 2023
 
 **Nombre del Alumno:** *Jonathan Alonso Lara*  
