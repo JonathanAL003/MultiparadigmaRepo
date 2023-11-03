@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='formulario.css')}}">
+    <title>Agregar Nuevo Empleado</title>
+</head>
+<body>
+    <form method="POST">
+        <fieldset class="groupbox">
+            <legend><h1>Datos Del Empleado</h1></legend>
+            {{newEmpleado.csrf_token}}
+            <p>
+                {{newEmpleado.nombre.label}}
+                {{newEmpleado.nombre(size=30)}}
+            </p>
+            <p>
+                {{newEmpleado.apellido.label}}
+                {{newEmpleado.apellido(size=30)}}
+            </p>
+            <p>
+                {{newEmpleado.puesto.label}}
+                {{newEmpleado.puesto(size=20)}}
+            </p>
+            <p>
+                {{newEmpleado.sueldo.label}}
+                {{newEmpleado.sueldo(size=30)}}
+            </p>
+            <p>
+                {{newEmpleado.enviar()}}
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>

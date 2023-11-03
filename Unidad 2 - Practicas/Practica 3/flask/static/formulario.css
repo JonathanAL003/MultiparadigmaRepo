@@ -1,0 +1,11 @@
+.groupbox {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    background-color: lightgray;
+}
+legend {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font: 16px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <title>Listado De Empleados</title>
+</head>
+<body>
+    <h1>Listado De Empleados</h1>
+    <a href="{{url_for('appInicio.Inicio')}}"><button class="boton">Inicio</button></a>
+    <table class="tabla" border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Puesto</th>
+                <th>Sueldo</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in empleados %}
+            <tr>
+                <td>{{empleado.id_empleado}}</td>
+                <td>{{empleado.nombre}}</td>
+                <td>{{empleado.apellido}}</td>
+                <td>{{empleado.puesto}}</td>
+                <td>{{empleado.sueldo}}</td>
+                <td><a href="/empleado/editar/{{empleado.id_empleado}}"><button class="boton">Editar</button></a></td>
+                <td><a href="/empleado/eliminar/{{empleado.id_empleado}}"><button class="boton">Eliminar</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{url_for('appEmpleado.Agregar')}}"><button class="boton">Agregar Empleado</button></a>
+</body>
+</html>

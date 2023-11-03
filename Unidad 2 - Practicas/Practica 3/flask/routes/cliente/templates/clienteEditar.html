@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='formulario.css')}}">
+    <title>Editar Cliente</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset class="groupbox">
+            <legend><h1>Editar Cliente</h1></legend>
+            {{ editCliente.csrf_token }}
+            <p>
+                {{ editCliente.nombre.label }}
+                {{ editCliente.nombre(size=30) }}
+            </p>
+            <p>
+                {{ editCliente.apellido.label }}
+                {{ editCliente.apellido(size=30) }}
+            </p>
+            <p>
+                {{ editCliente.telefono.label }}
+                {{ editCliente.telefono(size=30) }}
+            </p>
+            <p>
+                {{ editCliente.email.label }}
+                {{ editCliente.email(size=50) }}
+            </p>
+            <p>
+                {{ editCliente.enviar() }}
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <title>Listado De Clientes</title>
+</head>
+<body>
+    <h1>Listado De Clientes</h1>
+    <a href="{{url_for('appInicio.Inicio')}}"><button class="boton">Inicio</button></a>
+    <table class="tabla" border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>E-Mail</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+            <tr>
+                <td>{{cliente.id_cliente}}</td>
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.apellido}}</td>
+                <td>{{cliente.telefono}}</td>
+                <td>{{cliente.email}}</td>
+                <td><a href="/cliente/editar/{{cliente.id_cliente}}"><button class="boton">Editar</button></a></td>
+                <td><a href="/cliente/eliminar/{{cliente.id_cliente}}"><button class="boton">Eliminar</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{url_for('appCliente.Agregar')}}"><button class="boton">Agregar Cliente</button></a>
+</body>
+</html>

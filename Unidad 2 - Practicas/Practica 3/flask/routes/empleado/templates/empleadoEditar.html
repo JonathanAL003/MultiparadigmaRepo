@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='formulario.css')}}">
+    <title>Editar Empleado</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset class="groupbox">
+            <legend><h1>Editar Empleado</h1></legend>
+            {{ editEmpleado.csrf_token }}
+            <p>
+                {{editEmpleado.nombre.label}}
+                {{editEmpleado.nombre(size=30)}}
+            </p>
+            <p>
+                {{editEmpleado.apellido.label}}
+                {{editEmpleado.apellido(size=30)}}
+            </p>
+            <p>
+                {{editEmpleado.puesto.label}}
+                {{editEmpleado.puesto(size=30)}}
+            </p>
+            <p>
+                {{editEmpleado.sueldo.label}}
+                {{editEmpleado.sueldo(size=30)}}
+            </p>
+            <p>
+                {{editEmpleado.enviar()}}
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>

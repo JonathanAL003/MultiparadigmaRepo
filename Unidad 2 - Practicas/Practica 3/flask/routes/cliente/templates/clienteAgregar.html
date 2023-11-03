@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='formulario.css')}}">
+    <title>Agregar Nuevo Cliente</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset class="groupbox">
+            <legend><h1>Datos Del Cliente</h1></legend>
+            {{ newCliente.csrf_token }}
+            <p>
+                {{ newCliente.nombre.label }}
+                {{ newCliente.nombre(size=30) }}
+            </p>
+            <p>
+                {{ newCliente.apellido.label }}
+                {{ newCliente.apellido(size=30) }}
+            </p>
+            <p>
+                {{ newCliente.telefono.label }}
+                {{ newCliente.telefono(size=30) }}
+            </p>
+            <p>
+                {{ newCliente.email.label }}
+                {{ newCliente.email(size=50) }}
+            </p>
+            <p>
+                {{ newCliente.enviar() }}
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>
