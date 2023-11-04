@@ -1,0 +1,176 @@
+07:41:10 PM : DEBUG [app.py]:10 Inicio de la aplicación
+07:43:05 PM : DEBUG [app.py]:41 Catalogo De Juegos - INSERT
+07:43:54 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+07:43:54 PM : ERROR [app.py]:49 Conexion.ObtenerConexion() missing 1 required positional argument: 'cls'
+07:48:21 PM : DEBUG [app.py]:10 Inicio de la aplicación
+07:49:02 PM : DEBUG [app.py]:41 Catalogo De Juegos - INSERT
+07:49:19 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+07:49:19 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000001C88879C7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+07:49:19 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+07:49:19 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000001C88879C7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+07:49:19 PM : DEBUG [app.py]:47 Juego Agregado 1
+07:49:53 PM : DEBUG [app.py]:10 Inicio de la aplicación
+07:50:05 PM : DEBUG [app.py]:52 Catalogo De Juegos - UPDATE
+07:51:10 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+07:51:10 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000014B6BB0C7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+07:51:10 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+07:51:10 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000014B6BB0C7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+07:51:10 PM : DEBUG [app.py]:59 Juego Actualizado 1
+07:51:22 PM : DEBUG [app.py]:10 Inicio de la aplicación
+07:52:02 PM : DEBUG [app.py]:64 Catalogo De Juegos - DELETE
+07:52:03 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+07:52:03 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000001FAD2D4C7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+07:52:03 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+07:52:03 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000001FAD2D4C7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+07:52:03 PM : DEBUG [app.py]:68 Juego Eliminado 1
+08:00:08 PM : DEBUG [app.py]:10 Inicio de la aplicación
+08:00:16 PM : DEBUG [app.py]:10 Inicio de la aplicación
+08:00:23 PM : DEBUG [app.py]:43 Catalogo De Juegos - INSERT
+08:00:38 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:00:38 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000002170E6BC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:00:38 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:00:38 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000002170E6BC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:00:38 PM : DEBUG [app.py]:49 Juego Agregado 1
+08:00:42 PM : DEBUG [app.py]:192 Fin del programa
+08:01:24 PM : DEBUG [app.py]:37 Catalogo De Juegos - SELECT
+08:01:24 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:01:24 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000002170E6BC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:01:24 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:01:24 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000002170E6BC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:01:24 PM : DEBUG [app.py]:40 
+        ID JUEGO 2, Nombre: Sonic Frontiers,
+        desarrollador: Sega, Año de Publicación: 2022
+        
+08:01:31 PM : DEBUG [app.py]:192 Fin del programa
+08:01:36 PM : DEBUG [app.py]:43 Catalogo De Juegos - INSERT
+08:02:01 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:02:01 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000002170E6BC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:02:01 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:02:01 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000002170E6BC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:02:01 PM : DEBUG [app.py]:49 Juego Agregado 1
+08:02:07 PM : DEBUG [app.py]:192 Fin del programa
+08:02:09 PM : DEBUG [app.py]:37 Catalogo De Juegos - SELECT
+08:02:09 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:02:09 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000002170E6BC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:02:09 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:02:09 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000002170E6BC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:02:09 PM : DEBUG [app.py]:40 
+        ID JUEGO 2, Nombre: Sonic Frontiers,
+        desarrollador: Sega, Año de Publicación: 2022
+        
+08:02:09 PM : DEBUG [app.py]:40 
+        ID JUEGO 3, Nombre: Rocket League,
+        desarrollador: Psyonix, Año de Publicación: 2012
+        
+08:02:18 PM : DEBUG [app.py]:196 Nueva peticion
+08:02:47 PM : DEBUG [app.py]:10 Inicio de la aplicación
+08:02:56 PM : DEBUG [app.py]:96 Catalogo De Productos - INSERT
+08:03:39 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:03:39 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000020E3AB6C7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:03:39 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:03:39 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000020E3AB6C7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:03:39 PM : ERROR [app.py]:105 'Producto' object has no attribute 'Descipcion'
+08:03:55 PM : DEBUG [app.py]:196 Fin del programa
+08:04:44 PM : DEBUG [app.py]:10 Inicio de la aplicación
+08:04:57 PM : DEBUG [app.py]:96 Catalogo De Productos - INSERT
+08:05:29 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:05:29 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000002036903C6A0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:05:29 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:05:29 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000002036903C6A0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:05:29 PM : DEBUG [app.py]:103 Producto Agregado 1
+08:05:32 PM : DEBUG [app.py]:192 Nueva peticion
+08:05:39 PM : DEBUG [app.py]:90 Catalogo De Productos - SELECT
+08:05:39 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:05:39 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000002036903C6A0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:05:39 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:05:39 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000002036903C6A0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:05:39 PM : DEBUG [app.py]:93 
+        ID PRODUCTO 1, Nombre: Prismacolor 12 premium,
+        Descripción: Colores Prismacolor 12 piezas premium, Precio: 400.50, Stock: 100
+        
+08:06:12 PM : DEBUG [app.py]:192 Nueva peticion
+08:06:24 PM : DEBUG [app.py]:10 Inicio de la aplicación
+08:06:46 PM : DEBUG [app.py]:108 Catalogo De Producto - UPDATE
+08:07:30 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:07:30 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:07:30 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:07:30 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:07:30 PM : DEBUG [app.py]:116 Producto Actualizado 1
+08:07:34 PM : DEBUG [app.py]:192 Nueva peticion
+08:07:37 PM : DEBUG [app.py]:90 Catalogo De Productos - SELECT
+08:07:37 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:07:37 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:07:37 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:07:37 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:07:37 PM : DEBUG [app.py]:93 
+        ID PRODUCTO 1, Nombre: 12 Prismacolor Premium,
+        Descripción: Colores Prismacolor 12 piezas premium, Precio: 399.99, Stock: 150
+        
+08:07:47 PM : DEBUG [app.py]:192 Nueva peticion
+08:07:51 PM : DEBUG [app.py]:121 Catalogo De Productos - DELETE
+08:07:52 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:07:52 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:07:52 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:07:52 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:07:52 PM : DEBUG [app.py]:125 Producto Eliminado 1
+08:07:54 PM : DEBUG [app.py]:192 Nueva peticion
+08:07:56 PM : DEBUG [app.py]:90 Catalogo De Productos - SELECT
+08:07:56 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:07:56 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:07:56 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:07:56 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:08:01 PM : DEBUG [app.py]:192 Nueva peticion
+08:08:04 PM : DEBUG [app.py]:150 Catalogo De Proveedores - INSERT
+08:09:21 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:09:21 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:09:21 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:09:21 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:09:21 PM : DEBUG [app.py]:157 Proveedor Agregado 1
+08:09:24 PM : DEBUG [app.py]:192 Nueva peticion
+08:09:26 PM : DEBUG [app.py]:144 Catalogo De Proveedores - SELECT
+08:09:26 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:09:26 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:09:26 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:09:26 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:09:26 PM : DEBUG [app.py]:147 
+        ID PROVEEDOR 1, Nombre: Proveedor S.A de C.V.,
+        RFC: PRSC201103, CURP: PRSC201103HTSNMFA2,
+        Año de Fundación: 2020
+        
+08:09:43 PM : DEBUG [app.py]:192 Nueva peticion
+08:09:48 PM : DEBUG [app.py]:162 Catalogo De Provedores - UPDATE
+08:10:29 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:10:29 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:10:29 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:10:29 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:10:29 PM : DEBUG [app.py]:170 Proveedor Actualizado 1
+08:10:31 PM : DEBUG [app.py]:192 Nueva peticion
+08:10:33 PM : DEBUG [app.py]:144 Catalogo De Proveedores - SELECT
+08:10:33 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:10:33 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:10:33 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:10:33 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x0000019C635FC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:10:33 PM : DEBUG [app.py]:147 
+        ID PROVEEDOR 1, Nombre: Sena S.A de C.V.,
+        RFC: SERJ020817, CURP: SERJ020817HTSNMFA2,
+        Año de Fundación: 2002
+        
+08:10:42 PM : DEBUG [app.py]:192 Nueva peticion
+08:10:52 PM : DEBUG [app.py]:10 Inicio de la aplicación
+08:10:56 PM : DEBUG [app.py]:175 Catalogo De Proveedores - DELETE
+08:10:57 PM : ERROR [app.py]:181 Proveedor.__init__() got an unexpected keyword argument 'id_producto'
+08:11:10 PM : DEBUG [app.py]:196 Fin del programa
+08:11:34 PM : DEBUG [app.py]:10 Inicio de la aplicación
+08:11:37 PM : DEBUG [app.py]:175 Catalogo De Proveedores - DELETE
+08:11:38 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:11:38 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000001D384DDC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:11:38 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:11:38 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000001D384DDC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:11:38 PM : DEBUG [app.py]:179 Proveedor Eliminado 1
+08:11:40 PM : DEBUG [app.py]:192 Nueva peticion
+08:11:42 PM : DEBUG [app.py]:144 Catalogo De Proveedores - SELECT
+08:11:42 PM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+08:11:42 PM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x000001D384DDC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:11:42 PM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+08:11:42 PM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x000001D384DDC7B0; dsn: 'user=postgres password=xxx dbname=practica1_postgresql host=127.0.0.1 port=5432', closed: 0>
+08:11:44 PM : DEBUG [app.py]:196 Fin del programa
