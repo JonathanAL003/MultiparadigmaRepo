@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='formulario.css')}}">
+    <title>Agregar Nuevo Producto</title>
+</head>
+<body>
+    <form method="POST">
+        <fieldset class="groupbox">
+            <legend><h1>Datos Del Producto</h1></legend>
+            {{newProducto.csrf_token}}
+            <p>
+                {{newProducto.nombre_pr.label}}
+                {{newProducto.nombre_pr(size=30)}}
+            </p>
+            <p>
+                {{newProducto.categoria.label}}
+                {{newProducto.categoria(size=30)}}
+            </p>
+            <p>
+                {{newProducto.precio.label}}
+                {{newProducto.precio(size=20)}}
+            </p>
+            <p>
+                {{newProducto.peso_kg.label}}
+                {{newProducto.peso_kg(size=30)}}
+            </p>
+            <p>
+                {{newProducto.enviar()}}
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <title>Listado De productos</title>
+</head>
+<body>
+    <h1>Listado De Productos</h1>
+    <a href="{{url_for('appProducto.Agregar')}}"><button class="boton">Agregar</button></a>
+    <table class="tabla" border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Categoria</th>
+                <th>Precio</th>
+                <th>Peso Kg</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td>{{producto.id_prod}}</td>
+                <td>{{producto.nombre_pr}}</td>
+                <td>{{producto.categoria}}</td>
+                <td>{{producto.precio}}</td>
+                <td>{{producto.peso_kg}}</td>
+                <td><a href="/producto/editar/{{producto.id_prod}}"><button class="boton">Editar</button></a></td>
+                <td><a href="/producto/eliminar/{{producto.id_prod}}"><button class="boton">Eliminar</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

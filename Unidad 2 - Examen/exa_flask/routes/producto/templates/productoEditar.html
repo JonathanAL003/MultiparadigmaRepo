@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='formulario.css')}}">
+    <title>Editar Producto</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset class="groupbox">
+            <legend><h1>Editar Producto</h1></legend>
+            {{ editProducto.csrf_token }}
+            <p>
+                {{editProducto.nombre_pr.label}}
+                {{editProducto.nombre_pr(size=30)}}
+            </p>
+            <p>
+                {{editProducto.categoria.label}}
+                {{editProducto.categoria(size=30)}}
+            </p>
+            <p>
+                {{editProducto.precio.label}}
+                {{editProducto.precio(size=30)}}
+            </p>
+            <p>
+                {{editProducto.peso_kg.label}}
+                {{editProducto.peso_kg(size=30)}}
+            </p>
+            <p>
+                {{editProducto.enviar()}}
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>

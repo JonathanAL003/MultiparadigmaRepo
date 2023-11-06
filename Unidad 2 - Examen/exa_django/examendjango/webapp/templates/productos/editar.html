@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Producto</title>
+</head>
+<body>
+    <h1>Editar Producto: {{ producto.nombre }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ producto.nombre }}" required><br>
+        <input type="submit" value="Guardar Cambios">
+    </form>
+    <a href="{% url 'webapp:index' %}">Cancelar</a>
+</body>
+</html>

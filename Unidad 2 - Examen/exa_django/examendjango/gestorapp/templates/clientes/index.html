@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Clientes</title>
+</head>
+<body>
+    <h1>Lista de Clientes</h1>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.nombre }}</td>
+            <td>
+                <a href="{% url 'gestorapp:detalle_cliente' cliente.id %}">Ver Detalle</a> |
+                <a href="{% url 'gestorapp:editar_cliente' cliente.id %}">Editar</a> |
+                <a href="{% url 'gestorapp:eliminar_cliente' cliente.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'gestorapp:crear_cliente' %}">Agregar Cliente</a>
+</body>
+</html>

@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\Users\Sena\Documents\Tareas\7to Semestre\Desarrollo Multiparadigma\Python\Unidad II\Practicas\MultiparadigmaRepo\Unidad 2 - Examen\exa_flask\.venv"
+VIRTUAL_ENV="c:\Users\jonat\Desktop\MULTIPARADIGMA\MultiparadigmaRepo\Unidad 2 - Examen\exa_flask\.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
