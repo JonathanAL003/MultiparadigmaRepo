@@ -1,0 +1,3 @@
+postgresql - Jafet Anselmo Sena Ramos 20100264
+django - Jonathan Alonso Lara 19100141
+flask - Jonathan Alonso Lara 19100141

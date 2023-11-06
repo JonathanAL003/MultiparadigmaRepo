@@ -1,0 +1,24 @@
+11:52:07 AM : DEBUG [mainApp.py]:11 Inicio de la aplicacion
+11:52:11 AM : DEBUG [mainApp.py]:44 Catalogo De Animales - INSERT
+11:52:26 AM : ERROR [mainApp.py]:52 invalid literal for int() with base 10: '07/11/2023'
+11:52:51 AM : DEBUG [mainApp.py]:229 Fin del programa
+11:53:09 AM : DEBUG [mainApp.py]:11 Inicio de la aplicacion
+11:53:15 AM : DEBUG [mainApp.py]:44 Catalogo De Animales - INSERT
+11:53:27 AM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+11:53:27 AM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x00000229489E8370; dsn: 'user=postgres password=xxx dbname=exa_postgresql host=127.0.0.1 port=5432', closed: 0>
+11:53:27 AM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+11:53:27 AM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x00000229489E8370; dsn: 'user=postgres password=xxx dbname=exa_postgresql host=127.0.0.1 port=5432', closed: 0>
+11:53:27 AM : DEBUG [mainApp.py]:50 Animal Agregado 1
+11:53:31 AM : DEBUG [mainApp.py]:225 Nueva peticion
+11:53:33 AM : DEBUG [mainApp.py]:38 Catalogo De Animales - SELECT
+11:53:33 AM : DEBUG [CursorDelPool.py]:10 Inicio bloque with
+11:53:33 AM : DEBUG [Conexion.py]:38 Conexion obtenida <connection object at 0x00000229489E8370; dsn: 'user=postgres password=xxx dbname=exa_postgresql host=127.0.0.1 port=5432', closed: 0>
+11:53:33 AM : DEBUG [CursorDelPool.py]:16 Se ejecuta exit
+11:53:33 AM : DEBUG [Conexion.py]:44 Conexion regresada <connection object at 0x00000229489E8370; dsn: 'user=postgres password=xxx dbname=exa_postgresql host=127.0.0.1 port=5432', closed: 0>
+11:53:33 AM : DEBUG [mainApp.py]:41 
+        ID ANIMAL 1, 
+        Raza: Cuyo,
+        Fecha De Ingreso (dd/mm/YYYY): 06/11/2023,
+        Fecha De Salida (dd/mm/YYYY): 07/11/2023
+        
+11:53:35 AM : DEBUG [mainApp.py]:229 Fin del programa

@@ -3,9 +3,9 @@ from psycopg2 import pool
 from logger_base import log
 
 class Conexion:
-#    _DATABASE = 'practica1_postgresql'
-#    _USERNAME = 'postgres'
-#    _PASSWORD = 'admin'
+    _DATABASE = 'exa_postgresql'
+    _USERNAME = 'postgres'
+    _PASSWORD = 'admin'
     _PORT = '5432'
     _HOST = '127.0.0.1'
     _MIN_CON = 1
