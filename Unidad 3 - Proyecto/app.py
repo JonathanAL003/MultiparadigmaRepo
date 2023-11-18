@@ -1,11 +1,17 @@
 from flask import Flask
+from flask_cors import CORS
 from database import db
-from config import BasicConfig
+from encriptador import bcrypt
 from flask_migrate import Migrate
-import logging
-
-app= Flask(__name__)
+from config import BaseConfig
+from routes.user.user import appuser
+from routes.imagenes.imagen import imagesUser
+app=Flask(__name__)
+app.register_blueprint(appuser)
+app.register_blueprint(imagesUser)
+app.config.from_object(BaseConfig)
+CORS(app)
+bcrypt.init_app(app)
 db.init_app(app)
-migrate=Migrate()
+migrate = Migrate()
 migrate.init_app(app,db)
-logging.basicConfig(level=logging.DEBUG,filename="logs.log")
