@@ -38,7 +38,7 @@
             .then(data =>{
                 localStorage.setItem('token',data.auth_token)
                 console.log(data)
-                window.location
+                window.location.href = "/main"
             })
         })
     </script>

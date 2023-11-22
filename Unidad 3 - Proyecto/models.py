@@ -59,5 +59,18 @@ class Images(db.Model):
     user_id=db.Column(db.Integer,db.ForeignKey('users.id'))
     region=db.relationship('User',backref='users')
 
+class Producto(db.Model):
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    nombre = db.Column(db.String(80), nullable = False)
+    descripcion = db.Column(db.String(250))
+    precio_kg = db.Column(db.Float)
+    peso_kg = db.Column(db.Float)
+    marca = db.Column(db.String(60))
 
-
+class Venta(db.Model):
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    id_producto = db.Column(db.Integer, db.ForeignKey('producto.id'))
+    nombre_cliente = db.Column(db.String(250))
+    cantidad = db.Column(db.Integer)
+    precio_total = db.Column(db.Float)
+    rel_prod=db.relationship('Producto',backref='producto')

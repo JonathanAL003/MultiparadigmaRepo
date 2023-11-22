@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Nuevo Producto</legend>
+            {{ nuevoProd.csrf_token }}
+            <div>
+                {{ nuevoProd.nombre.label }}
+                {{ nuevoProd.nombre(size = 30) }}
+            </div>
+            <div>
+                {{ nuevoProd.descripcion.label }}
+                {{ nuevoProd.descripcion(size = 30) }}
+            </div>
+            <div>
+                {{ nuevoProd.precio_kg.label }}
+                {{ nuevoProd.precio_kg(size = 30) }}
+            </div>
+            <div>
+                {{ nuevoProd.peso_kg.label }}
+                {{ nuevoProd.peso_kg(size = 30) }}
+            </div>
+            <div>
+                {{ nuevoProd.marca.label }}
+                {{ nuevoProd.marca(size = 30) }}
+            </div>
+            <div>
+                {{ nuevoProd.enviar() }}
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

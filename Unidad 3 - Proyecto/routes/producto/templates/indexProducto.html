@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo De Productos</title>
+</head>
+<body>
+    <h1>PRODUCTOS</h1>
+    <a href="/main"><button>Inicio</button></a>
+    <br>
+    <a href="{{url_for('appProducto.Agregar')}}"><button>Agregar Producto</button></a>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio/Kg</th>
+                <th>Peso/Kg</th>
+                <th>Marca</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prod in productos %}
+            <tr>
+                <td>{{prod.id}}</td>
+                <td>{{prod.nombre}}</td>
+                <td>{{prod.descripcion}}</td>
+                <td>{{prod.precio_kg}}</td>
+                <td>{{prod.peso_kg}}</td>
+                <td>{{prod.marca}}</td>
+                <td><a href="/producto/edit/{{prod.id}}"></a><button>Editar</button></td>
+                <td><a href="/producto/delete/{{prod.id}}"></a><button>Eliminar</button></td>
+            </tr>
+            {% endblock %}
+        </tbody>
+    </table>
+</body>
+</html>

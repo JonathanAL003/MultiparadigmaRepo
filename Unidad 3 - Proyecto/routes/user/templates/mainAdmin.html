@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-
 {% block content %}
 <h1>Main page</h1>
 <a href="#" onclick="cargarImagen()">Perfil</a>
@@ -11,6 +10,10 @@
     <br>
     <div>
         <a href="/venta"><button>Venta</button></a>
+    </div>
+    <br>
+    <div>
+        <a href="/usuarios"><button>Usuarios</button></a><!--Botón que solo se muestre para los Admins-->
     </div>
 </fieldset>
 <script>
