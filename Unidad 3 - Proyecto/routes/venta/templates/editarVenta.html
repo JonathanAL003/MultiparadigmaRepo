@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Venta</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Actualizar Venta</legend>
+            {{ editarVenta.csrf_token }}
+            <div>
+                {{ editarVenta.id_producto.label }}
+                {{ editarVenta.id_producto(size = 30) }}
+            </div>
+            <div>
+                {{ editarVenta.nombre_cliente.label }}
+                {{ editarVenta.nombre_cliente(size = 30) }}
+            </div>
+            <div>
+                {{ editarVenta.cantidad.label }}
+                {{ editarVenta.cantidad(size = 30) }}
+            </div>
+            <div>
+                {{ editarVenta.precio_total.label }}
+                {{ editarVenta.precio_total(size = 30) }}
+            </div>
+            <div>
+                {{ editarVenta.enviar() }}
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

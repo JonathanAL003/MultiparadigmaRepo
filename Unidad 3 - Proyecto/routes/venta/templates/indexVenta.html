@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro De Ventas</title>
+</head>
+<body>
+    <h1>VENTAS</h1>
+    <a href="/main"><button>Inicio</button></a>
+    <br>
+    <a href="{{url_for('appVenta.Agregar')}}"><button>Agregar Venta</button></a>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ID Producto</th>
+                <th>Cliente</th>
+                <th>Cantidad</th>
+                <th>Precio Total</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in ventas %}
+            <tr>
+                <td>{{v.id}}</td>
+                <td>{{v.id_producto}}</td>
+                <td>{{v.nombre_cliente}}</td>
+                <td>{{v.cantidad}}</td>
+                <td>{{v.precio_total}}</td>
+                <td><a href="/venta/edit/{{v.id}}"></a><button>Editar</button></td>
+                <td><a href="/venta/delete/{{v.id}}"></a><button>Eliminar</button></td>
+            </tr>
+            {% endblock %}
+        </tbody>
+    </table>
+</body>
+</html>

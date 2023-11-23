@@ -33,7 +33,7 @@ def Editar(id):
             editProducto.populate_obj(producto)
             db.session.commit()
             return redirect(url_for('appProducto.Index'))
-    return render_template('editarProducto.html')
+    return render_template('editarProducto.html', editarProd = editProducto)
 
 @appProducto.route('/producto/delete/<int:id>', methods = ["POST"])
 def Eliminar(id):

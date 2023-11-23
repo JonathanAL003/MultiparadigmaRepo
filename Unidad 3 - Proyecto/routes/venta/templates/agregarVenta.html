@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Venta</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Nueva Venta</legend>
+            {{ nuevaVenta.csrf_token }}
+            <div>
+                {{ nuevaVenta.id_producto.label }}
+                {{ nuevaVenta.id_producto(size = 30) }}
+            </div>
+            <div>
+                {{ nuevaVenta.nombre_cliente.label }}
+                {{ nuevaVenta.nombre_cliente(size = 30) }}
+            </div>
+            <div>
+                {{ nuevaVenta.cantidad.label }}
+                {{ nuevaVenta.cantidad(size = 30) }}
+            </div>
+            <div>
+                {{ nuevaVenta.precio_total.label }}
+                {{ nuevaVenta.precio_total(size = 30) }}
+            </div>
+            <div>
+                {{ nuevaVenta.enviar() }}
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
