@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%} Parcial 3 APP {%endblock%}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/styles.css')}}">
 </head>
 <body onload="checkToken()">
-    {%block content%}
-    {% endblock %}
+    <div class="sidebar" id="sidebar1">
+        <a href="/main"><img src="{{ url_for('static', filename = 'LogoVJ.png') }}" alt="" class="image" style="width: 70px; height: 70px;"></a>
+        <a href="{{ url_for('appuser.Users') }}" id="opUsers">Usuarios</a>
+        <a href="{{ url_for('appProducto.Index') }}">Productos</a>
+        <a href="{{ url_for('appVenta.Index')}}">Ventas</a>
+        <div class="empty"></div>
+        <a href="#" onclick="cargarImagen()">
+            <img src="data:image/png;base64,{{ imagen }}" alt="" id="foto" class="image" style="width: 70px; height: 70px;"> Perfil
+        </a>
+        <a href="/login" id="logoff">Log Off</a>
+    </div>
+    <div class="content">
+        {%block content%}
+        {% endblock %}
+    </div>
 </body>
 <script>
     function checkToken(){
@@ -16,10 +30,28 @@
             fetch(`/login?token=${token}`)
             .then( response => response.json())
             .then(data =>{
-                console.log(data.message)
                 if(data.message!="valid token"){
                     localStorage.removeItem('token')
                     window.location.href='/login'
+                }
+                else {
+                    flag = localStorage.getItem('admin')
+                    const opcion = document.getElementById('opUsers');
+                    if (flag == 1) {
+                        opcion.style.display = "show";
+                    }
+                    else if (flag == 0) {
+                        opcion.style.display = "none";
+                    }
+                    fotoPerfil();
+                    // fetch("/display?token="+localStorage.getItem("token"))
+                    // .then(res = res.json())
+                    // .then(data => {
+                    //     if (data.status == 200){
+                    //         imagen = document.getElementById("foto");
+                    //         imagen.src = data.data
+                    //     }
+                    // })
                 }
             })
             .catch(error=>{
@@ -28,6 +60,27 @@
         }else{
             window.location.href='/login'
         }
+    }
+    
+    document.getElementById("logoff").addEventListener("click", () => {
+        localStorage.removeItem('admin');
+        localStorage.removeItem('token');
+    })
+    
+    function cargarImagen(){
+        window.location.href='/displayImage?token='+localStorage.getItem('token')
+    }
+
+    function fotoPerfil(){
+        // fetch("/display?token="+localStorage.getItem("token"))
+        // .then(response => response.json())
+        // .then(dato => {
+        //     console.log(dato)
+        //     if (dato.status == 200) {
+        //         imagen = document.getElementById("foto");
+        //         imagen.src = "data:image/png;base64,{{ "+dato.data+" }}"
+        //     }
+        // })
     }
 </script>
 </html>

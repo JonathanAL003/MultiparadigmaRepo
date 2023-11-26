@@ -1,21 +1,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Main page</h1>
-<a href="#" onclick="cargarImagen()">Perfil</a>
-<fieldset>
+<div style="display: block;" align="center">
+    <fieldset style="background-color: azure; display: block; width: fit-content; text-align: center;">
+        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 52px;">Página Principal</h1>
+        <h2 style="color: #10D10A">Bienvenido A Verdulería <b style="color: green;">El Jonnhy</b></h2>
+    </fieldset>
+</div>
+<fieldset style="background-color:azure;">
     <legend>Menu</legend>
-    <div>
-        <a href="/producto"><button>Productos</button></a>
-    </div>
-    <br>
-    <div>
-        <a href="/venta"><button>Venta</button></a>
-    </div>
+    
 </fieldset>
-<script>
-    function cargarImagen(){
-        window.location.href='/displayImage?token='+localStorage.getItem('token')
-    }
-</script>
 {% endblock %}

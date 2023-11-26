@@ -9,7 +9,7 @@ appVenta = Blueprint('appVenta', __name__, template_folder='templates')
 
 @appVenta.route('/venta')
 def Index():
-    ventas = Venta.query.all()
+    ventas = Venta.query.order_by("id").all()
     return render_template('indexVenta.html', ventas = ventas)
 
 @appVenta.route('/venta/404')
@@ -19,26 +19,46 @@ def Error():
 #RUTAS PARA FORMULARIOS
 @appVenta.route('/venta/add', methods = ["GET", "POST"])
 def Agregar():
-    venta = Venta()
-    ventaForm = VentaForm(obj = venta)
-    if request.method == "POST":
-        if ventaForm.validate_on_submit():
-            ventaForm.populate_obj(venta)
-            db.session.add(venta)
-            db.session.commit()
-            return redirect(url_for('appVenta.Index'))
+    try:
+        venta = Venta()
+        ventaForm = VentaForm(obj = venta)
+        prod = Producto.query.all()
+        listProducto = []
+        for p in prod:
+            op = (p.id, p.nombre)
+            listProducto.append(op)
+        ventaForm.id_producto.choices = listProducto
+        if request.method == "POST":
+            if ventaForm.validate_on_submit():
+                producto = Producto.query.filter_by(id = ventaForm.id_producto.data).first()
+                ventaForm.precio_total.data = (producto.peso_kg * float(ventaForm.cantidad.data)) * producto.precio_kg
+                ventaForm.populate_obj(venta)
+                db.session.add(venta)
+                db.session.commit()
+                return redirect(url_for('appVenta.Index'))
+            else:
+                return redirect(url_for('appVenta.Error'))
         else:
-            return redirect(url_for('appVenta.Error'))
-    else:
-        return render_template("agregarVenta.html", nuevaVenta = ventaForm)
+            return render_template("agregarVenta.html", nuevaVenta = ventaForm)
+    except Exception as e:
+        print(e)
+        return redirect(url_for('appVenta.Error'))
 
 @appVenta.route("/venta/edit/<int:id>", methods = ["GET", "POST"])
 def Editar(id):
     try:
         venta = Venta.query.get_or_404(id)
         ventaForm = VentaForm(obj = venta)
+        prod = Producto.query.all()
+        listProducto = []
+        for p in prod:
+            op = (p.id, p.nombre)
+            listProducto.append(op)
+        ventaForm.id_producto.choices = listProducto
         if request.method == "POST":
             if ventaForm.validate_on_submit():
+                producto = Producto.query.filter_by(id = ventaForm.id_producto.data).first()
+                ventaForm.precio_total.data = (producto.peso_kg * float(ventaForm.cantidad.data)) * producto.precio_kg
                 ventaForm.populate_obj(venta)
                 db.session.commit()
                 return redirect(url_for('appVenta.Index'))
@@ -48,8 +68,8 @@ def Editar(id):
         print(e)
         return redirect(url_for('appVenta.Error'))
     
-@appVenta.route('/venta/delete/<int:id>', methods = ["GET", "POST"])
-def Eliminar():
+@appVenta.route('/venta/delete/<int:id>', methods = ["GET"])
+def Eliminar(id):
     try:
         venta = Venta.query.get_or_404(id)
         db.session.delete(venta)

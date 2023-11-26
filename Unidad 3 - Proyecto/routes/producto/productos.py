@@ -1,8 +1,8 @@
 from flask import Blueprint,request,jsonify,render_template,redirect, url_for
 from sqlalchemy import exc 
-from models import Producto
+from models import Producto, Venta
 from forms import ProductoForm
-from app import db,bcrypt
+from app import db,bcrypt, flash
 from auth import tokenCheck,verificar
 
 appProducto = Blueprint('appProducto', __name__, template_folder="templates")
@@ -11,6 +11,10 @@ appProducto = Blueprint('appProducto', __name__, template_folder="templates")
 def Index():
     productos = Producto.query.all()
     return render_template("indexProducto.html", productos = productos)
+
+@appProducto.route('/producto/404')
+def Error():
+    return render_template('errorProducto.html')
 
 @appProducto.route('/producto/add', methods = ["GET", "POST"])
 def Agregar():
@@ -35,12 +39,17 @@ def Editar(id):
             return redirect(url_for('appProducto.Index'))
     return render_template('editarProducto.html', editarProd = editProducto)
 
-@appProducto.route('/producto/delete/<int:id>', methods = ["POST"])
+@appProducto.route('/producto/delete/<int:id>', methods = ["GET"])
 def Eliminar(id):
     producto = Producto.query.get_or_404(id)
-    db.session.delete(producto)
-    db.session.commit()
-    return redirect(url_for('appProducto.Index'))
+    ventas = Venta.query.filter_by(id_producto = producto.id).first()
+    if not ventas:
+        db.session.delete(producto)
+        db.session.commit()
+        return redirect(url_for('appProducto.Index'))
+    else:
+        flash(f'No se puede eliminar el producto {producto.nombre} - ID:{producto.id}, ya que se encuentra procesado en una o más ventas')
+        return redirect(url_for('appProducto.Index'))
 
 @appProducto.route('/producto/add/json', methods = ["POST"])
 def AgregarJson():

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="post">
+        <fieldset>
+            <legend>Actualizar Usuario</legend>
+            {{ editUser.csrf_token }}
+            <div>
+                {{ editUser.email.label }}
+                {{ editUser.email(size = 30) }}
+            </div>
+            <div>
+                {{ editUser.password.label }}
+                {{ editUser.password(size = 30) }}
+            </div>
+            <div>
+                {{ editUser.admin.label }}
+                {{ editUser.admin }}
+            </div>
+            <div>
+                {{ editUser.enviar() }}
+            </div>
+        </fieldset>
+    </form>
+{% endblock %}

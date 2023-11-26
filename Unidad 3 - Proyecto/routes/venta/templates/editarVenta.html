@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Venta</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
     <form method="post">
         <fieldset>
             <legend>Actualizar Venta</legend>
             {{ editarVenta.csrf_token }}
             <div>
                 {{ editarVenta.id_producto.label }}
-                {{ editarVenta.id_producto(size = 30) }}
+                {{ editarVenta.id_producto }}
             </div>
             <div>
                 {{ editarVenta.nombre_cliente.label }}
@@ -24,12 +18,11 @@
             </div>
             <div>
                 {{ editarVenta.precio_total.label }}
-                {{ editarVenta.precio_total(size = 30) }}
+                {{ editarVenta.precio_total(disabled = true) }}
             </div>
             <div>
                 {{ editarVenta.enviar() }}
             </div>
         </fieldset>
     </form>
-</body>
-</html>
+{% endblock %}

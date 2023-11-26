@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, FloatField, SelectField, IntegerField
+from wtforms import StringField, SubmitField, FloatField, SelectField, IntegerField, EmailField, PasswordField, RadioField
 from wtforms.validators import DataRequired
-from models import Producto
+
 class ProductoForm(FlaskForm):
     nombre = StringField("Nombre: ", validators=[DataRequired()])
     descripcion = StringField("Descripción: ")
@@ -11,8 +11,14 @@ class ProductoForm(FlaskForm):
     enviar = SubmitField("Enviar")
 
 class VentaForm(FlaskForm):
-    id_producto = SelectField("Producto: ", Producto.query.all(), validate_choice = True, validators=[DataRequired()])
+    id_producto = SelectField("Producto: ", validators = [DataRequired()])
     nombre_cliente = StringField("Nombre Del Cliente: ")
     cantidad = IntegerField("Cantidad: ")
     precio_total = FloatField("Precio Total: ")
+    enviar = SubmitField("Enviar")
+
+class UserForm(FlaskForm):
+    email = EmailField("E-Mail: ", validators=[DataRequired()])
+    password = PasswordField("Password: ")
+    admin = RadioField("Administrador: ", choices=[(True, "Si"), (False, "No")])
     enviar = SubmitField("Enviar")

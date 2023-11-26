@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <table border="1px" style="background-color: aliceblue;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>E-Mail</th>
+                <th>Password</th>
+                <th>Fecha De Registro</th>
+                <th>Admin</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in users %}
+            <tr>
+                <td>{{u.id}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.password}}</td>
+                <td>{{u.registered_on}}</td>
+                <td>{{u.admin}}</td>
+                <td><a href="/usuario/edit/{{u.email}}"><button>Editar</button></a></td>
+                <td><a href="/usuario/delete/{{u.id}}"><button>Eliminar</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -19,6 +19,9 @@ class User(db.Model):
 
         self.registered_on=datetime.datetime.now()
         self.admin=admin
+        
+    def encodePassword(self, password):
+        self.password = bcrypt.generate_password_hash(password, BaseConfig.BCRYPT_LOG_ROUNDS).decode()
 
     def encode_auth_token(self,user_id):
         try:
@@ -74,3 +77,9 @@ class Venta(db.Model):
     cantidad = db.Column(db.Integer)
     precio_total = db.Column(db.Float)
     rel_prod=db.relationship('Producto',backref='producto')
+
+class Proveedor(db.Model):
+    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
+    nombre = db.Column(db.String(120), nullable = False)
+    telefono = db.Column(db.String(20))
+    direccion = db.Column(db.String(250))

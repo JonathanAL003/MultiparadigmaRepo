@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro De Ventas</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
     <h1>VENTAS</h1>
-    <a href="/main"><button>Inicio</button></a>
-    <br>
-    <a href="{{url_for('appVenta.Agregar')}}"><button>Agregar Venta</button></a>
-    <br>
-    <table>
+    <table border = "1px" style="background-color: aliceblue;">
         <thead>
+            <tr>
+                <td colspan="7" style="padding: 5px;">
+                    <a href="{{url_for('appVenta.Agregar')}}" align = "center">
+                        <button style="display: block; width:100%; height: 40px;">Agregar Venta</button>
+                    </a>
+                </td>
+            </tr>
             <tr>
                 <th>ID</th>
                 <th>ID Producto</th>
@@ -31,11 +28,10 @@
                 <td>{{v.nombre_cliente}}</td>
                 <td>{{v.cantidad}}</td>
                 <td>{{v.precio_total}}</td>
-                <td><a href="/venta/edit/{{v.id}}"></a><button>Editar</button></td>
-                <td><a href="/venta/delete/{{v.id}}"></a><button>Eliminar</button></td>
+                <td><a href="/venta/edit/{{v.id}}"><button>Editar</button></a></td>
+                <td><a href="/venta/delete/{{v.id}}"><button>Eliminar</button></a></td>
             </tr>
-            {% endblock %}
+            {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+{%endblock%}
