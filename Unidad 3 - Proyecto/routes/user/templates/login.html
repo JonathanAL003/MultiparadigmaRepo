@@ -7,22 +7,35 @@
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/login.css')}}">
 </head>
 <body>
-    <h1>Login</h1>
-        <form id="login-form">
-        <label for="email">Email:</label>
-        <input type="text" id="email"name="email">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-        <br>
-        <button type="submit" id="login-btn">Login</button>
+    <center>
+    <form id="login-form" class="form-login">
+        <div>
+            <img src="{{url_for('static', filename='/LogoVJ.png')}}" width="20%" height="20%">
+        </div>
+        <fieldset class="groupbox">
+            <p>
+                <h1>LOGIN</h1>
+            </p>
+            <p>
+                <label for="email">Email:</label>
+                <input class="textbox" type="text" id="email"name="email">
+            </p>
+            <p>
+                <label for="password">Password:</label>
+                <input class="textbox" type="password" id="password" name="password">
+            </p>
+            <button type="submit" id="login-btn" class="btnEnviar">Log In</button><br> <img src="" id="loading" width="50px" height="50px" style="visibility: collapse;">
+        </fieldset>
     </form>
-
+    </center>
     <script>
         const loginForm = document.querySelector('#login-form')
         const loginButton = document.querySelector('#login-btn')
         loginButton.addEventListener('click',(e)=>{
             e.preventDefault();
+            document.getElementById("loading").style.visibility = "visible";
+            gifLoading = document.getElementById("loading");
+            gifLoading.src = "{{url_for('static', filename = 'loader.gif')}}";
             const email = document.querySelector('#email').value;
             const password = document.querySelector('#password').value;
             

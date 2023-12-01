@@ -13,42 +13,40 @@
         {% endwith %}
     <div>
         <fieldset class="group" style="display: block; width: fit-content;">
-            <table class="tabla" border = "1px", style="background-color: aliceblue;">
+            <table class="tabla" border = "1px", style="background-color: aliceblue; border-radius: 10px;">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Precio/Kg</th>
-                        <th>Peso/Kg</th>
-                        <th>Marca</th>
-                        <th></th>
-                        <th></th>
+                        <td colspan="8" style="padding: 5px; border-radius: 10px;">
+                            <a href="{{url_for('appProducto.Agregar')}}" align = "center">
+                                <button style="display: block; width:100%; height: 40px; border-radius: 10px;">Agregar Producto</button>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="border-radius: 5px;">ID</th>
+                        <th style="border-radius: 5px;">Nombre</th>
+                        <th style="border-radius: 5px;">Descripcion</th>
+                        <th style="border-radius: 5px;">Precio/Kg</th>
+                        <th style="border-radius: 5px;">Peso/Kg</th>
+                        <th style="border-radius: 5px;">Marca</th>
+                        <th style="border-radius: 5px;"></th>
+                        <th style="border-radius: 5px;"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for prod in productos %}
                     <tr>
-                        <td>{{prod.id}}</td>
-                        <td>{{prod.nombre}}</td>
-                        <td>{{prod.descripcion}}</td>
-                        <td>{{prod.precio_kg}}</td>
-                        <td>{{prod.peso_kg}}</td>
-                        <td>{{prod.marca}}</td>
-                        <td><a href="producto/edit/{{prod.id}}"><button>Editar</button></a></td>
-                        <td><a href="producto/delete/{{prod.id}}"><button>Eliminar</button></a></td>
+                        <td style="border-radius: 5px;">{{prod.id}}</td>
+                        <td style="border-radius: 5px;">{{prod.nombre}}</td>
+                        <td style="border-radius: 5px;">{{prod.descripcion}}</td>
+                        <td style="border-radius: 5px;">{{prod.precio_kg}}</td>
+                        <td style="border-radius: 5px;">{{prod.peso_kg}}</td>
+                        <td style="border-radius: 5px;">{{prod.marca}}</td>
+                        <td style="border-radius: 5px;"><a href="producto/edit/{{prod.id}}"><button style="border-radius: 5px;">Editar</button></a></td>
+                        <td style="border-radius: 5px;"><a href="producto/delete/{{prod.id}}"><button style="border-radius: 5px;">Eliminar</button></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="8" style="padding: 5px;">
-                            <a href="{{url_for('appProducto.Agregar')}}" align = "center">
-                                <button style="display: block; width:100%; height: 40px;">Agregar Producto</button>
-                            </a>
-                        </td>
-                    </tr>
-                </tfoot>
             </table>
         </fieldset>
     </div>

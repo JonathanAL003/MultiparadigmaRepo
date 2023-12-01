@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%} Parcial 3 APP {%endblock%}</title>
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/styles.css')}}">
+    <link rel="icon" href="{{url_for('static', filename = 'LogoVJ.ico')}}" type="image/x-icon">
 </head>
 <body onload="checkToken()">
-    <div class="sidebar" id="sidebar1">
-        <a href="/main"><img src="{{ url_for('static', filename = 'LogoVJ.png') }}" alt="" class="image" style="width: 70px; height: 70px;"></a>
-        <a href="{{ url_for('appuser.Users') }}" id="opUsers">Usuarios</a>
-        <a href="{{ url_for('appProducto.Index') }}">Productos</a>
-        <a href="{{ url_for('appVenta.Index')}}">Ventas</a>
-        <div class="empty"></div>
-        <a href="#" onclick="cargarImagen()">
-            <img src="data:image/png;base64,{{ imagen }}" alt="" id="foto" class="image" style="width: 70px; height: 70px;"> Perfil
-        </a>
-        <a href="/login" id="logoff">Log Off</a>
+    <div class="sidebar">
+        <!-- <div id="sidebar1"> -->
+            <a href="/main" id="imgLogo"><img src="{{ url_for('static', filename = 'LogoVJ.png') }}" id="logo" alt="" style="width: 70px; height: 70px;"></a>
+            <a href="{{ url_for('appuser.Users') }}" id="opUsers" class="opt">Usuarios</a>
+            <a href="{{ url_for('appProducto.Index') }}" id="opProd">Productos</a>
+            <a href="{{ url_for('appVenta.Index') }}" id="opVent">Ventas</a>
+            <a href="{{ url_for('appProveedor.Index') }}" class="opt" id="Prov">Proveedores</a>
+        <!-- </div> -->
+        <!-- <div id="sidebar2"> -->
+            <a href="#" onclick="cargarImagen()" class="opt2" id="optFotoPerfil">
+                <img src="" alt="" id="foto" class="image" style="width: 70px; height: 70px;"> Perfil
+            </a>
+            <a href="/login" id="logoff" class="opt2"><img src="{{url_for('static', filename = 'logoutico2.png')}}" style="width: 70px; height: 70px;"></a>
+        <!-- </div> -->
     </div>
     <div class="content">
         {%block content%}
@@ -37,13 +42,20 @@
                 else {
                     flag = localStorage.getItem('admin')
                     const opcion = document.getElementById('opUsers');
+                    const prove = document.getElementById('Prov');
                     if (flag == 1) {
                         opcion.style.display = "show";
+                        prove.style.display = "show";
                     }
                     else if (flag == 0) {
                         opcion.style.display = "none";
+                        prove.style.display = "none";
                     }
                     fotoPerfil();
+                    console.log(window.location.href);
+                    if (window.location.href == "http://localhost:5000/main"){
+                        CargarLeyenda();
+                    }
                     // fetch("/display?token="+localStorage.getItem("token"))
                     // .then(res = res.json())
                     // .then(data => {
@@ -72,15 +84,16 @@
     }
 
     function fotoPerfil(){
-        // fetch("/display?token="+localStorage.getItem("token"))
-        // .then(response => response.json())
-        // .then(dato => {
-        //     console.log(dato)
-        //     if (dato.status == 200) {
-        //         imagen = document.getElementById("foto");
-        //         imagen.src = "data:image/png;base64,{{ "+dato.data+" }}"
-        //     }
-        // })
+        fetch("/display?token="+localStorage.getItem("token"))
+        .then(response => response.json())
+        .then(dato => {
+            //console.log(dato)
+            if (dato.status == 200) {
+                imagen = document.getElementById("foto");
+                imagen.src = "data:image/png;base64, " + dato.data;
+                logoIMG = document.getElementById("logo");
+            }
+        })
     }
 </script>
 </html>

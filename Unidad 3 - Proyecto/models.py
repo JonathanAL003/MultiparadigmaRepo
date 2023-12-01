@@ -81,5 +81,6 @@ class Venta(db.Model):
 class Proveedor(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     nombre = db.Column(db.String(120), nullable = False)
+    rfc = db.Column(db.String(20), nullable = False)
     telefono = db.Column(db.String(20))
     direccion = db.Column(db.String(250))

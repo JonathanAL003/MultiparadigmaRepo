@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="post">
+    <fieldset>
+        <legend>Editar Proveedor</legend>
+        {{ editarProv.csrf_token }}
+        <div>
+            {{ editarProv.nombre.label }}
+            {{ editarProv.nombre(size = 30) }}
+        </div>
+        <div>
+            {{ editarProv.rfc.label }}
+            {{ editarProv.rfc(size = 30) }}
+        </div>
+        <div>
+            {{ editarProv.telefono.label }}
+            {{ editarProv.telefono(size = 30) }}
+        </div>
+        <div>
+            {{ editarProv.direccion.label }}
+            {{ editarProv.direccion(size = 30) }}
+        </div>
+        <div>
+            {{ editarProv.enviar() }}
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

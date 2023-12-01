@@ -1,6 +1,6 @@
 from flask import Blueprint,request,jsonify,render_template,redirect, url_for
-from sqlalchemy import exc 
-from models import User
+from sqlalchemy import exc, select, desc
+from models import User, Producto, Proveedor, Venta
 from forms import UserForm
 from app import db,bcrypt
 from auth import tokenCheck,verificar
@@ -73,7 +73,9 @@ def getUsers(usuario):
 @appuser.route('/main')
 def main():
     try:
-        return render_template('main.html')
+        ventas = Venta.query.order_by(desc("id")).limit(3).all()
+        productos = Producto.query.order_by(desc("id")).limit(3).all()
+        return render_template('main.html', ventas = ventas, productos = productos)
     except Exception as ex:
         print(str(ex))
         return redirect(url_for('appuser.Error'))
@@ -176,3 +178,9 @@ def Editar(mail):
         print(str(ex))
         return redirect(url_for('appuser.Error'))
 
+@appuser.route('/usuario/delete/<int:id>')
+def Eliminar(id):
+    user = User.query.filter_by(id = id).first()
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for('appuser.Users'))

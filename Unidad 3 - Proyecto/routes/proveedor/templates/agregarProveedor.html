@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="post">
+    <fieldset>
+        <legend>Nuevo Proveedor</legend>
+        {{ nuevoProv.csrf_token }}
+        <div>
+            {{ nuevoProv.nombre.label }}
+            {{ nuevoProv.nombre(size = 30) }}
+        </div>
+        <div>
+            {{ nuevoProv.rfc.label }}
+            {{ nuevoProv.rfc(size = 30) }}
+        </div>
+        <div>
+            {{ nuevoProv.telefono.label }}
+            {{ nuevoProv.telefono(size = 30) }}
+        </div>
+        <div>
+            {{ nuevoProv.direccion.label }}
+            {{ nuevoProv.direccion(size = 30) }}
+        </div>
+        <div>
+            {{ nuevoProv.enviar() }}
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

@@ -22,3 +22,10 @@ class UserForm(FlaskForm):
     password = PasswordField("Password: ")
     admin = RadioField("Administrador: ", choices=[(True, "Si"), (False, "No")])
     enviar = SubmitField("Enviar")
+
+class ProveedorForm(FlaskForm):
+    nombre = StringField("Nombre: ", validators=[DataRequired()])
+    rfc = StringField("rfc: ", validators=[DataRequired()])
+    telefono = StringField("telefono: ", validators=[DataRequired()])
+    direccion = StringField("direccion: ", validators=[DataRequired()])
+    enviar = SubmitField("Enviar")

@@ -7,12 +7,14 @@ from config import BaseConfig
 from routes.user.user import appuser
 from routes.imagenes.imagen import imagesUser
 from routes.producto.productos import appProducto
-from routes.venta.ventas import appVenta 
+from routes.venta.ventas import appVenta
+from routes.proveedor.proveedores import appProveedor
 app=Flask(__name__)
 app.register_blueprint(appuser)
 app.register_blueprint(imagesUser)
 app.register_blueprint(appProducto)
 app.register_blueprint(appVenta)
+app.register_blueprint(appProveedor)
 app.config.from_object(BaseConfig)
 CORS(app)
 bcrypt.init_app(app)

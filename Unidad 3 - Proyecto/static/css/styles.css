@@ -2,20 +2,54 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background-image: url('../fondo_login.jpg');  /* Ruta relativa a la carpeta static */
-    background-size: cover;
+    background-size:cover;
     background-position: center;
-    background-repeat: no-repeat;
+    height: fit-content;
+    background-repeat:repeat-y;
 }
 
 .sidebar {
-    width: 100%;
+    position:static;
     height: 100px;
     background-color: #111;
-    display: flex;
+    display: grid;
+    justify-content: center;
+    vertical-align: middle;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 100%;
+    grid-template-areas: 'op1 op2 op3 op4 op5 op6 op7 op8 op9 op10';
+    width: 100vw;
+}
+
+/* #sidebar1 {
+    margin: 10px;
     justify-content: left;
-    /* justify-content: space-around; */
-    align-items: center;
-    flex-direction: row;
+}
+#sidebar2 {
+    margin: 10px;
+    justify-content: right;
+} */
+
+.sidebar #imgLogo {
+    grid-area: op1;
+}
+.sidebar #optUser {
+    grid-area: op2;
+}
+.sidebar #optProd {
+    grid-area: op3;
+}
+.sidebar #optVent {
+    grid-area: op4;
+}
+.sidebar #Prov {
+    grid-area: op5;
+}
+.sidebar #optFotoPerfil {
+    grid-area: op9;
+}
+.sidebar #logoff {
+    grid-area: op10;
 }
 
 .sidebar a {
@@ -32,9 +66,9 @@ body {
     background-color: darkgray;
 }
 
-.sidebar .empty {
-    padding-left: 56%;
-}
+/* .sidebar .empty {
+    padding-left: 48%;
+} */
 
 .content {
     margin: 20px;

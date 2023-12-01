@@ -1,8 +1,38 @@
 body {
-    margin: 0;
+    padding: 20px;
+    margin: 20px;
     font-family: 'Arial', sans-serif;
     background-image: url('../fondo_login.jpg');  /* Ruta relativa a la carpeta static */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    align-items: center;
+}
+
+.form-login {
+    align-self: center;
+    align-items: center;
+    background-color:lightgray;
+    padding: 5px; 
+    font-size: 24px; 
+    width: fit-content; 
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.textbox {
+    font-size: 24px;
+    size: 30px;
+}
+
+.btnEnviar {
+    font-size: 18px;
+    width: 200px;
+    height:fit-content;
+}
+
+.groupbox {
+    border: 5px dotted black;
+    border-radius: 30px;
+    background-color:rgb(86, 240, 86);
 }

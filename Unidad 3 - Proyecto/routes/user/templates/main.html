@@ -8,7 +8,69 @@
     </fieldset>
 </div>
 <fieldset style="background-color:azure;">
-    <legend>Menu</legend>
-    
+    <legend id="leyenda" style="font-size: 20px; font: bold;">Menu</legend>
+    <div id="resumenVentas" style="padding-top: 5px; padding-bottom: 5px;">
+        <table width = '100%' margin="5px" border="1px">
+            <title style="display: block; font-size: 16px;">Últimas 3 Ventas Registradas</title>
+            <thead>
+                <tr style="background-color:forestgreen; color: white;">
+                    <th style="border-radius: 5px;">ID Producto</th>
+                    <th style="border-radius: 5px;">Cliente</th>
+                    <th style="border-radius: 5px;">Cantidad</th>
+                    <th style="border-radius: 5px;">Total</th>
+                    <th style="border-radius: 5px;">Encargado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for v in ventas %}
+                <tr>
+                    <td style="border-radius: 5px;">{{v.id_producto}}</td>
+                    <td style="border-radius: 5px;">{{v.nombre_cliente}}</td>
+                    <td style="border-radius: 5px;">{{v.cantidad}}</td>
+                    <td style="border-radius: 5px;">{{v.precio_total}}</td>
+                    <td style="border-radius: 5px;"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="resumenProductos" style="padding-top: 5px; padding-bottom: 5px;">
+        <table width = '100%' margin="5px" border="1px">
+            <title style="display: block; font-size: 16px;">Últimos 3 Productos Agregados</title>
+            <thead>
+                <tr style="background-color:forestgreen; color: white;">
+                    <th style="border-radius: 5px;">ID</th>
+                    <th style="border-radius: 5px;">Nombre</th>
+                    <th style="border-radius: 5px;">Descripcion</th>
+                    <th style="border-radius: 5px;">Precio/Kg</th>
+                    <th style="border-radius: 5px;">Peso/Kg</th>
+                    <th style="border-radius: 5px;">Marca</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prod in productos %}
+                <tr>
+                    <td style="border-radius: 5px;">{{prod.id}}</td>
+                    <td style="border-radius: 5px;">{{prod.nombre}}</td>
+                    <td style="border-radius: 5px;">{{prod.descripcion}}</td>
+                    <td style="border-radius: 5px;">{{prod.precio_kg}}</td>
+                    <td style="border-radius: 5px;">{{prod.peso_kg}}</td>
+                    <td style="border-radius: 5px;">{{prod.marca}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </fieldset>
+<script>
+    function CargarLeyenda(){
+        flag = localStorage.getItem('admin');
+        if (flag == 1){
+            document.getElementById("leyenda").innerHTML = "Panel de Administacion";
+        }
+        else{
+            document.getElementById("leyenda").innerHTML = "Panel Principal";
+        }
+    }
+</script>
 {% endblock %}

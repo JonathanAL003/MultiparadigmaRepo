@@ -1,29 +1,40 @@
 {% extends "layout.html" %}
 {% block content %}
-    <table border="1px" style="background-color: aliceblue;">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>E-Mail</th>
-                <th>Password</th>
-                <th>Fecha De Registro</th>
-                <th>Admin</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for u in users %}
-            <tr>
-                <td>{{u.id}}</td>
-                <td>{{u.email}}</td>
-                <td>{{u.password}}</td>
-                <td>{{u.registered_on}}</td>
-                <td>{{u.admin}}</td>
-                <td><a href="/usuario/edit/{{u.email}}"><button>Editar</button></a></td>
-                <td><a href="/usuario/delete/{{u.id}}"><button>Eliminar</button></a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <h1>USUARIOS</h1>
+    <br>
+    <fieldset class="group" style="display: block; width: fit-content;">
+        <table border="1px" style="background-color: aliceblue; border-radius: 10px;">
+            <thead>
+                <tr>
+                    <th colspan="7" style="padding: 5px; border-radius: 10px;">
+                        <a href="{{ url_for('appuser.logint_post') }}" align = "center">
+                            <button style="display: block; width:100%; height: 40px; border-radius: 10px;">Registrar Usuario</button>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th style="border-radius: 5px;">ID</th>
+                    <th style="border-radius: 5px;">E-Mail</th>
+                    <th style="border-radius: 5px;">Password</th>
+                    <th style="border-radius: 5px;">Fecha De Registro</th>
+                    <th style="border-radius: 5px;">Admin</th>
+                    <th style="border-radius: 5px;"></th>
+                    <th style="border-radius: 5px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr>
+                    <td style="border-radius: 5px;">{{u.id}}</td>
+                    <td style="border-radius: 5px;">{{u.email}}</td>
+                    <td style="border-radius: 5px;">{{u.password}}</td>
+                    <td style="border-radius: 5px;">{{u.registered_on}}</td>
+                    <td style="border-radius: 5px;">{{u.admin}}</td>
+                    <td style="border-radius: 5px;"><a href="/usuario/edit/{{u.email}}"><button style="border-radius: 5px;">Editar</button></a></td>
+                    <td style="border-radius: 5px;"><a href="/usuario/delete/{{u.id}}"><button style="border-radius: 5px;">Eliminar</button></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </fieldset>
 {% endblock %}
