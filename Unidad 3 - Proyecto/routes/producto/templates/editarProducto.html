@@ -1,32 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
     <form method="post">
-        <fieldset>
-            <legend>Actualizar Producto</legend>
+        <fieldset style="background-color: lightgray; border: 2px solid black; border-radius: 10px; width: fit-content;">
+            <legend style="background-color: black; color: white; font-size: 24px; border-radius: 10px; padding: 5px;">Actualizar Producto</legend>
             {{ editarProd.csrf_token }}
-            <div>
+            <p>
                 {{ editarProd.nombre.label }}
                 {{ editarProd.nombre(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editarProd.descripcion.label }}
                 {{ editarProd.descripcion(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editarProd.precio_kg.label }}
                 {{ editarProd.precio_kg(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editarProd.peso_kg.label }}
                 {{ editarProd.peso_kg(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editarProd.marca.label }}
                 {{ editarProd.marca(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editarProd.enviar() }}
-            </div>
+            </p>
         </fieldset>
     </form>
 {%endblock%}

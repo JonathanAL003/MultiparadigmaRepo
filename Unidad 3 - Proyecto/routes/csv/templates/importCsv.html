@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<fieldset style="background-color: white; opacity: 75%; border: 5px solid black; border-radius: 10px; padding: 10px; width: fit-content;">
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="file_csv">Seleccione el archivo CSV para Importar Productos . . .</label>
+        <p><input type="file" name="file_csv"></p>
+        <button type="submit" id="importar">Importar Productos</button>
+    </form>
+</fieldset>
+{% endblock %}

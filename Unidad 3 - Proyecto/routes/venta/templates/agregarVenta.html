@@ -1,28 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
     <form method="post">
-        <fieldset>
-            <legend>Nueva Venta</legend>
+        <fieldset style="background-color: lightgray; border: 2px solid black; border-radius: 10px; width: fit-content;">
+            <legend style="background-color: black; color: white; font-size: 24px; border-radius: 10px; padding: 5px;">Nueva Venta</legend>
             {{ nuevaVenta.csrf_token }}
-            <div>
+            <p>
                 {{ nuevaVenta.id_producto.label }}
                 {{ nuevaVenta.id_producto }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ nuevaVenta.nombre_cliente.label }}
                 {{ nuevaVenta.nombre_cliente(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ nuevaVenta.cantidad.label }}
                 {{ nuevaVenta.cantidad(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ nuevaVenta.precio_total.label }}
                 {{ nuevaVenta.precio_total(disabled = true) }}
-            </div>
-            <div>
+            </p>
+            <p>
+                {{ nuevaVenta.encargado.label(id = "labelEncargado") }}
+                {{ nuevaVenta.encargado(id = "txtEncargado")}}
+            </p>
+            <p>
                 {{ nuevaVenta.enviar() }}
-            </div>
+            </p>
         </fieldset>
     </form>
 {%endblock%}

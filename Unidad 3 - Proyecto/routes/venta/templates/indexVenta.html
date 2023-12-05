@@ -1,23 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>VENTAS</h1>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <h1 style="color: green; background-color: white; width: fit-content; height: fit-content; border: 3px solid black; border-radius: 100px; padding: 10px;">VENTAS</h1>
+    <br>
+    <div>
+        <button id="generate-btn" style="height: fit-content; padding: 5px; font-size: 18px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            <div style="display: flex; align-items: center; justify-content: flex-start; text-align: center;">
+                <img src="{{url_for('static', filename='export.png')}}" height="40px" width="30px" style="margin-right: 10px;">Exportar PDF
+            </div>
+        </button>
+    </div>
     <br>
     <fieldset class="group" style="display: block; width: fit-content;">
         <table border = "1px" style="background-color: aliceblue; border-radius: 10px;" >
             <thead>
                 <tr>
-                    <td colspan="7" style="padding: 5px; border-radius: 10px;">
+                    <td colspan="8" style="padding: 5px; border-radius: 10px;">
                         <a href="{{url_for('appVenta.Agregar')}}" align = "center">
                             <button style="display: block; width:100%; height: 40px; border-radius: 10px;">Agregar Venta</button>
                         </a>
                     </td>
                 </tr>
-                <tr>
+                <tr style="background-color:forestgreen; color: white;">
                     <th style="border-radius: 5px;">ID</th>
-                    <th style="border-radius: 5px;">ID Producto</th>
+                    <th style="border-radius: 5px;">Producto</th>
                     <th style="border-radius: 5px;">Cliente</th>
                     <th style="border-radius: 5px;">Cantidad</th>
                     <th style="border-radius: 5px;">Precio Total</th>
+                    <th style="border-radius: 5px;">Encargado</th>
                     <th style="border-radius: 5px;"></th>
                     <th style="border-radius: 5px;"></th>
                 </tr>
@@ -26,10 +36,11 @@
                 {% for v in ventas %}
                 <tr>
                     <td style="border-radius: 5px;">{{v.id}}</td>
-                    <td style="border-radius: 5px;">{{v.id_producto}}</td>
+                    <td style="border-radius: 5px;">{{v.nombre}}</td>
                     <td style="border-radius: 5px;">{{v.nombre_cliente}}</td>
                     <td style="border-radius: 5px;">{{v.cantidad}}</td>
                     <td style="border-radius: 5px;">{{v.precio_total}}</td>
+                    <td style="border-radius: 5px;">{{v.encargado}}</td>
                     <td style="border-radius: 5px;"><a href="/venta/edit/{{v.id}}"><button style="border-radius: 5px;">Editar</button></a></td>
                     <td style="border-radius: 5px;"><a href="/venta/delete/{{v.id}}"><button style="border-radius: 5px;">Eliminar</button></a></td>
                 </tr>
@@ -37,4 +48,11 @@
             </tbody>
         </table>
     </fieldset>
+    <script>
+        $(document).ready(function() {
+            $('#generate-btn').click(function() {
+                window.location.href = '/generatePdf';
+            });
+        });
+    </script>
 {%endblock%}

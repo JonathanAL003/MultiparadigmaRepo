@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Generate PDF and Download</title>
+{% extends "layout.html" %}
+{% block content %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
     <h1>Generate PDF and Download</h1>
     <button id="generate-btn">Generate PDF</button>
 
@@ -15,5 +11,4 @@
             });
         });
     </script>
-</body>
-</html>
+{%endblock%}

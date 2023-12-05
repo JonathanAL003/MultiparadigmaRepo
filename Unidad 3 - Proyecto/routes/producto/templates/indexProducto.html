@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>PRODUCTOS</h1>
+    <h1 style="color: green; background-color: white; width: fit-content; height: fit-content; border: 3px solid black; border-radius: 100px; padding: 10px;">PRODUCTOS</h1>
     <br>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <div style="color: red; background-color: azure; width: fit-content; padding: 5px;">
+        <div style="color: red; background-color: azure; width: fit-content; padding: 5px; border: 1px; border-radius: 5px;">
             {% for m in messages %}
             {{ m }}
             {% endfor %}
@@ -12,6 +12,23 @@
         {% endif %}
         {% endwith %}
     <div>
+        <div>
+            <a href="{{url_for('appcsv.import_csv')}}">
+                <button style="height: fit-content; padding: 5px; font-size: 18px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                    <div style="display: flex; align-items: center; justify-content: flex-start; text-align: center;">
+                        <img src="{{url_for('static', filename='import.png')}}" height="40px" width="30px" style="margin-right: 10px;">Importar Productos
+                    </div>
+                </button>
+            </a>
+            <a href="{{url_for('appcsv.download_csv')}}">
+                <button style="height: fit-content; padding: 5px; font-size: 18px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                    <div style="display: flex; align-items: center; justify-content: flex-start; text-align: center;">
+                        <img src="{{url_for('static', filename='export.png')}}" height="40px" width="30px" style="margin-right: 10px;">Exportar Productos
+                    </div>
+                </button>
+            </a>
+        </div>
+        <br>
         <fieldset class="group" style="display: block; width: fit-content;">
             <table class="tabla" border = "1px", style="background-color: aliceblue; border-radius: 10px;">
                 <thead>
@@ -22,7 +39,7 @@
                             </a>
                         </td>
                     </tr>
-                    <tr>
+                    <tr style="background-color:forestgreen; color: white;">
                         <th style="border-radius: 5px;">ID</th>
                         <th style="border-radius: 5px;">Nombre</th>
                         <th style="border-radius: 5px;">Descripcion</th>

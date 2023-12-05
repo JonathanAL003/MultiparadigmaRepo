@@ -2,13 +2,12 @@
 
 {% block content %}
 <div style="display: block;" align="center">
-    <fieldset style="background-color: azure; display: block; width: fit-content; text-align: center;">
-        <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 52px;">Página Principal</h1>
-        <h2 style="color: #10D10A">Bienvenido A Verdulería <b style="color: green;">El Jonnhy</b></h2>
+    <fieldset style="background-color: azure; display: block; width: fit-content; text-align: center; border-radius: 20px;">
+        <h1 style="color: #10D10A">Bienvenido A Verdulería <br><b style="color: green;">El Jonnhy</b></h1>
     </fieldset>
 </div>
-<fieldset style="background-color:azure;">
-    <legend id="leyenda" style="font-size: 20px; font: bold;">Menu</legend>
+<fieldset style="background-color:azure; border-radius: 30px;">
+    <legend id="leyenda" align="center" style="font-size: 20px; font: bold; background-color: black; color: white; border: 1px; border-radius: 20px; padding: 5px;">Menu</legend>
     <div id="resumenVentas" style="padding-top: 5px; padding-bottom: 5px;">
         <table width = '100%' margin="5px" border="1px">
             <title style="display: block; font-size: 16px;">Últimas 3 Ventas Registradas</title>
@@ -24,11 +23,11 @@
             <tbody>
                 {% for v in ventas %}
                 <tr>
-                    <td style="border-radius: 5px;">{{v.id_producto}}</td>
+                    <td style="border-radius: 5px;">{{v.nombre}}</td>
                     <td style="border-radius: 5px;">{{v.nombre_cliente}}</td>
                     <td style="border-radius: 5px;">{{v.cantidad}}</td>
                     <td style="border-radius: 5px;">{{v.precio_total}}</td>
-                    <td style="border-radius: 5px;"></td>
+                    <td style="border-radius: 5px;">{{v.encargado}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -61,15 +60,106 @@
             </tbody>
         </table>
     </div>
+    <div id="resumenProductosAll" style="padding-top: 5px; padding-bottom: 5px;">
+        <table width = '100%' margin="5px" border="1px">
+            <title style="display: block; font-size: 16px;">Productos Existentes</title>
+            <thead>
+                <tr style="background-color:forestgreen; color: white;">
+                    <th style="border-radius: 5px;">ID</th>
+                    <th style="border-radius: 5px;">Nombre</th>
+                    <th style="border-radius: 5px;">Descripcion</th>
+                    <th style="border-radius: 5px;">Precio/Kg</th>
+                    <th style="border-radius: 5px;">Peso/Kg</th>
+                    <th style="border-radius: 5px;">Marca</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prod in allProductos %}
+                <tr>
+                    <td style="border-radius: 5px;">{{prod.id}}</td>
+                    <td style="border-radius: 5px;">{{prod.nombre}}</td>
+                    <td style="border-radius: 5px;">{{prod.descripcion}}</td>
+                    <td style="border-radius: 5px;">{{prod.precio_kg}}</td>
+                    <td style="border-radius: 5px;">{{prod.peso_kg}}</td>
+                    <td style="border-radius: 5px;">{{prod.marca}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="resumenProveedores" style="padding-top: 5px; padding-bottom: 5px;">
+        <table width = '100%' margin="5px" border="1px">
+            <title style="display: block; font-size: 16px;">Últimos 3 Proveedores Agregados</title>
+            <thead>
+                <tr style="background-color:forestgreen; color: white;">
+                    <th style="border-radius: 5px;">ID</th>
+                    <th style="border-radius: 5px;">Nombre</th>
+                    <th style="border-radius: 5px;">RFC</th>
+                    <th style="border-radius: 5px;">Telefono</th>
+                    <th style="border-radius: 5px;">Direccion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prov in proveedores %}
+                <tr>
+                    <td style="border-radius: 5px;">{{prov.id}}</td>
+                    <td style="border-radius: 5px;">{{prov.nombre}}</td>
+                    <td style="border-radius: 5px;">{{prov.rfc}}</td>
+                    <td style="border-radius: 5px;">{{prov.telefono}}</td>
+                    <td style="border-radius: 5px;">{{prov.direccion}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="resumenUsuarios" style="padding-top: 5px; padding-bottom: 5px;">
+        <table width = '100%' margin="5px" border="1px">
+            <title style="display: block; font-size: 16px;">Últimos 3 Usuarios Agregados</title>
+            <thead>
+                <tr style="background-color:forestgreen; color: white;">
+                    <th style="border-radius: 5px;">ID</th>
+                    <th style="border-radius: 5px;">E-Mail</th>
+                    <th style="border-radius: 5px;">Password</th>
+                    <th style="border-radius: 5px;">Admin</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in usuarios %}
+                <tr>
+                    <td style="border-radius: 5px;">{{user.id}}</td>
+                    <td style="border-radius: 5px;">{{user.email}}</td>
+                    <td style="border-radius: 5px;">{{user.password}}</td>
+                    {% if user.admin == True %}
+                        <td style="border-radius: 5px;">Si</td>
+                    {% else %}
+                        <td style="border-radius: 5px;">No</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </fieldset>
 <script>
     function CargarLeyenda(){
         flag = localStorage.getItem('admin');
+        panelProv = document.getElementById("resumenProveedores");
+        panelUser = document.getElementById("resumenUsuarios");
+        panelAllProd = document.getElementById("resumenProductosAll");
+        panelProd = document.getElementById("resumenProductos");
         if (flag == 1){
             document.getElementById("leyenda").innerHTML = "Panel de Administacion";
+            panelProv.style.display = "show";
+            panelUser.style.display = "show";
+            panelAllProd.style.display = "none";
+            panelProd.style.display = "show";
         }
         else{
             document.getElementById("leyenda").innerHTML = "Panel Principal";
+            panelProv.style.display = "none";
+            panelUser.style.display = "none";
+            panelAllProd.style.display = "show";
+            panelProd.style.display = "none";
         }
     }
 </script>

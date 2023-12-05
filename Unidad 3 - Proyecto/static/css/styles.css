@@ -6,10 +6,13 @@ body {
     background-position: center;
     height: fit-content;
     background-repeat:repeat-y;
+    background-attachment: fixed;
 }
 
 .sidebar {
-    position:static;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
     height: 100px;
     background-color: #111;
     display: grid;
@@ -57,13 +60,17 @@ body {
     text-decoration: none;
     font-size: 18px;
     color: #818181;
-    display: block;
+    display: flex;
+    align-items: center;
     text-align: center;
+    justify-content: center;
 }
 
 .sidebar a:hover {
     color: #F1F1F1;
     background-color: darkgray;
+    font-size: 22px;
+    font-weight: 800;
 }
 
 /* .sidebar .empty {

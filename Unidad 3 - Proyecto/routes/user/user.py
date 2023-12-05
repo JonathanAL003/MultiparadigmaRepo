@@ -46,9 +46,9 @@ def login():
                 }
                 print(response)
                 return jsonify(response)
-        return jsonify({"message":"Datos incorrectos"})
+        return jsonify({"status":300,"message":"Datos incorrectos"})
     except Exception as ex:
-        return jsonify({"status":400, "message":"Ha ocurrido un incidente", "desc": str(ex)})
+        return jsonify({"status":400, "message":"Ha ocurrido un incidente", "error": str(ex)})
 
 @appuser.route('/usuario/json',methods=['GET'])
 @tokenCheck
@@ -69,83 +69,136 @@ def getUsers(usuario):
     else:
         return jsonify({'Error':"No tienes permisos"})
 
+@appuser.route('/usuario/json', methods=["PUT"])
+@tokenCheck
+def UpdateUser(usuario):
+    try:
+        json = request.get_json()
+        user = User.query.filter_by(email=json["email"]).first()
+        if user:
+            user.email = json["email"]
+            user.password = User.encodePassword(json["password"])
+            user.admin = json["admin"]
+            db.session.commit()
+            return jsonify({"status":200, "message":"Usuario actualizado"})
+        else:
+            return jsonify({"status":400, "message":"Usuario no encontrado"})
+    except Exception as ex:
+        return jsonify({"status":500, "message":"Ha ocurrido un incidente", "error": str(ex)})
+    
+@appuser.route('/usuario/json', methods=["DELETE"])
+@tokenCheck
+def DeleteUser(usuario):
+    try:
+        json = request.get_json()
+        user = User.query.filter_by(email=json["email"]).first()
+        if user:
+            db.session.delete(user)
+            db.session.commit()
+            return jsonify({"status":200, "message":"Usuario eliminado"})
+        else:
+            return jsonify({"status":400, "message":"Usuario no encontrado"})
+    except Exception as ex:
+        return jsonify({"status":500, "message":"Ha ocurrido un incidente", "error": str(ex)})
+
 @appuser.route('/')
 @appuser.route('/main')
 def main():
     try:
         ventas = Venta.query.order_by(desc("id")).limit(3).all()
+        vent = []
+        for v in ventas:
+            dic = {}
+            prod = Producto.query.filter_by(id=v.id_producto).first()
+            dic["nombre"] = prod.nombre
+            dic["nombre_cliente"] = v.nombre_cliente
+            dic["cantidad"] = v.cantidad
+            dic["precio_total"] = v.precio_total
+            dic["encargado"] = v.encargado
+            vent.append(dic)
         productos = Producto.query.order_by(desc("id")).limit(3).all()
-        return render_template('main.html', ventas = ventas, productos = productos)
+        proveedores = Proveedor.query.order_by(desc("id")).limit(3).all()
+        usuarios = User.query.order_by(desc("id")).limit(3).all()
+        productosAll = Producto.query.order_by("id").all()
+        return render_template('main.html', ventas = vent, productos = productos, proveedores = proveedores, usuarios = usuarios, allProductos = productosAll)
     except Exception as ex:
         print(str(ex))
         return redirect(url_for('appuser.Error'))
 
 @appuser.route('/login',methods=["GET","POST"])
 def login_post():
-    if(request.method=="GET"):
-        token = request.args.get('token')
-        if token:
-            info = verificar(token)
-            if(info['status']!="fail"):
-                responseObject={
-                    'status':"success",
-                    'message':'valid token',
-                    'info':info
-                }
-                return jsonify(responseObject)
-        return render_template('login.html')
-    else:
-        email =request.json['email']
-        password=request.json['password']
-        print(request.json)
-        usuario = User(email=email,password=password)
-        searchUser = User.query.filter_by(email=email).first()
-        if searchUser:
-            validation = bcrypt.check_password_hash(searchUser.password,password)
-            if validation:
-                auth_token = usuario.encode_auth_token(user_id=searchUser.id)
-                if searchUser.admin == True:
-                    admin = 1
-                else:
-                    admin = 0
-                responseObject={
-                    'status':"success",
-                    'login':'Loggin exitoso',
-                    'auth_token':auth_token,
-                    'admin': admin
-                }
-                print(responseObject['admin'])
-                return jsonify(responseObject)
-        return jsonify({'message':"Datos incorrectos"})
+    try:
+        if(request.method=="GET"):
+            token = request.args.get('token')
+            if token:
+                info = verificar(token)
+                if(info['status']!="fail"):
+                    responseObject={
+                        'status':"success",
+                        'message':'valid token',
+                        'info':info
+                    }
+                    return jsonify(responseObject)
+            return render_template('login.html')
+        else:
+            email =request.json['email']
+            password=request.json['password']
+            print(request.json)
+            usuario = User(email=email,password=password)
+            searchUser = User.query.filter_by(email=email).first()
+            if searchUser:
+                validation = bcrypt.check_password_hash(searchUser.password,password)
+                if validation:
+                    auth_token = usuario.encode_auth_token(user_id=searchUser.id)
+                    if searchUser.admin == True:
+                        admin = 1
+                    else:
+                        admin = 0
+                    responseObject={
+                        'status':"success",
+                        'login':'Loggin exitoso',
+                        'auth_token':auth_token,
+                        'admin': admin
+                    }
+                    print(responseObject['admin'])
+                    return jsonify(responseObject)
+            return jsonify({'message':"Datos incorrectos"})
+    except Exception as ex:
+        print(str(ex))
+        return redirect(url_for('appuser.Error'))
     
 @appuser.route('/sign',methods=["GET","POST"])
 def logint_post():
-    if request.method=="GET":
-        return render_template('register.html')
-    else:
-        email=request.json['email']
-        password=request.json['password']
-        usuario = User(email=email,password=password)
-        userExists = User.query.filter_by(email=email).first()
-        if not userExists:
-            try:
-                db.session.add(usuario)
-                db.session.commit()
-                responseObject={
-                    'status':'success',
-                    'message':"Registro exitoso"
-                }
-            except exc.SQLAlchemyError as e:
+    try:
+        if request.method=="GET":
+            return render_template('register.html')
+        else:
+            email=request.json['email']
+            password=request.json['password']
+            usuario = User(email=email,password=password)
+            userExists = User.query.filter_by(email=email).first()
+            if not userExists:
+                try:
+                    db.session.add(usuario)
+                    db.session.commit()
+                    responseObject={
+                        'status':'success',
+                        'message':"Registro exitoso"
+                    }
+                except exc.SQLAlchemyError as e:
+                    responseObject={
+                        'status':'error',
+                        'message':e
+                    }
+            else:
                 responseObject={
                     'status':'error',
-                    'message':e
+                    'message':'usuario existente'
                 }
-        else:
-            responseObject={
-                'status':'error',
-                'message':'usuario existente'
-            }
-        return jsonify(responseObject)
+            return jsonify(responseObject)
+    except Exception as ex:
+        print(str(ex))
+        return redirect(url_for('appuser.Error'))
     
 @appuser.route('/usuario')
 def Users():
@@ -180,7 +233,11 @@ def Editar(mail):
 
 @appuser.route('/usuario/delete/<int:id>')
 def Eliminar(id):
-    user = User.query.filter_by(id = id).first()
-    db.session.delete(user)
-    db.session.commit()
-    return redirect(url_for('appuser.Users'))
+    try:
+        user = User.query.filter_by(id = id).first()
+        db.session.delete(user)
+        db.session.commit()
+        return redirect(url_for('appuser.Users'))
+    except Exception as ex:
+        print(str(ex))
+        return redirect(url_for('appuser.Error'))

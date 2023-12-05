@@ -1,28 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
     <form method="post">
-        <fieldset>
-            <legend>Actualizar Venta</legend>
+        <fieldset style="background-color: lightgray; border: 2px solid black; border-radius: 10px; width: fit-content;">
+            <legend style="background-color: black; color: white; font-size: 24px; border-radius: 10px; padding: 5px;">Actualizar Venta</legend>
             {{ editarVenta.csrf_token }}
-            <div>
+            <p>
                 {{ editarVenta.id_producto.label }}
                 {{ editarVenta.id_producto }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editarVenta.nombre_cliente.label }}
                 {{ editarVenta.nombre_cliente(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editarVenta.cantidad.label }}
                 {{ editarVenta.cantidad(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editarVenta.precio_total.label }}
                 {{ editarVenta.precio_total(disabled = true) }}
-            </div>
-            <div>
+            </p>
+            <p>
+                {{ editarVenta.encargado.label(id = "labelEncargado") }}
+                {{ editarVenta.encargado(id = "txtEncargado")}}
+            </p>
+            <p>
                 {{ editarVenta.enviar() }}
-            </div>
+            </p>
         </fieldset>
     </form>
 {% endblock %}

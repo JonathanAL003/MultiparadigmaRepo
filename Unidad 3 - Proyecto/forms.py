@@ -15,6 +15,7 @@ class VentaForm(FlaskForm):
     nombre_cliente = StringField("Nombre Del Cliente: ")
     cantidad = IntegerField("Cantidad: ")
     precio_total = FloatField("Precio Total: ")
+    encargado = StringField("Encargado: ")
     enviar = SubmitField("Enviar")
 
 class UserForm(FlaskForm):

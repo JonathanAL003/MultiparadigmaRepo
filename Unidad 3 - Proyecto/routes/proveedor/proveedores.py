@@ -11,9 +11,9 @@ def Index():
     proves = Proveedor.query.order_by("id").all()
     return render_template('indexProveedor.html', proveedores = proves)
 
-@appProveedor.route('/proveedor/404')
-def Error():
-    return render_template('errorProveedor.html')
+# @appProveedor.route('/proveedor/404')
+# def Error():
+#     return render_template('errorProveedor.html')
 
 @appProveedor.route('/proveedor/add', methods = ["GET", "POST"])
 def Agregar():
@@ -58,3 +58,63 @@ def Eliminar(id):
     except Exception as ex:
         print(str(ex))
         return redirect(url_for('appuser.Error'))
+    
+@appProveedor.route('/proveedor/json', methods = ["GET"])
+def IndexJson():
+    try:
+        proveedores = Proveedor.query.order_by("id").all()
+        lista = []
+        for p in proveedores:
+            d = {}
+            d["id"] = p.id
+            d["nombre"] = p.nombre
+            d["rfc"] = p.rfc
+            d["telefono"] = p.telefono
+            d["direccion"] = p.direccion
+            lista.append(d)
+        return jsonify({"status":200, "proveedores":lista})
+    except Exception as ex:
+        print(str(ex))
+        return jsonify({"status":500, "message": "Ha Ocurrido Un Incidente :c", "error":str(ex)})
+    
+@appProveedor.route('/proveedor/json', methods = ["POST"])
+def AgregarJson():
+    try:
+        json = request.get_json()
+        prov = Proveedor()
+        prov.nombre = json["nombre"]
+        prov.rfc = json["rfc"]
+        prov.telefono = json["telefono"]
+        prov.direccion = json["direccion"]
+        db.session.add(prov)
+        db.session.commit()
+        return jsonify({"status":200, "proveedores":"Proveedor insertado"})
+    except Exception as ex:
+        print(str(ex))
+        return jsonify({"status":500, "message": "Ha Ocurrido Un Incidente :c", "error":str(ex)})
+
+@appProveedor.route('/proveedor/json', methods = ["PUT"])
+def EditarJson():
+    try:
+        json = request.get_json()
+        prov = Proveedor.query.filter_by(id = json["id"]).first()
+        prov.nombre = json["nombre"]
+        prov.rfc = json["rfc"]
+        prov.telefono = json["telefono"]
+        prov.direccion = json["direccion"]
+        db.session.commit()
+        return jsonify({"status":200, "proveedores":"Proveedor actualizado"})
+    except Exception as ex:
+        print(str(ex))
+        return jsonify({"status":500, "message": "Ha Ocurrido Un Incidente :c", "error":str(ex)})
+@appProveedor.route('/proveedor/json', methods = ["DELETE"])
+def EliminarJson():
+    try:
+        json = request.get_json()
+        prov = Proveedor.query.filter_by(id = json["id"]).first()
+        db.session.delete(prov)
+        db.session.commit()
+        return jsonify({"status":200, "message":"Proveedor eliminado"})
+    except Exception as ex:
+        print(str(ex))
+        return jsonify({"status":500, "message": "Ha Ocurrido Un Incidente :c", "error":str(ex)})

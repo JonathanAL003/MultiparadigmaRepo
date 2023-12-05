@@ -1,0 +1,5 @@
+  ID  ,  Nombre  ,  Descripcion  ,  Precio Por Kg  ,  Peso Por Kg  ,  Marca  
+x,Repollo,Es un repollo,12.5,0.75,Colifor Inc.
+x,Zanahoria,Es una zanahoria,6.75,0.42,Verdulerias S.A de C.V.
+x,Coliflor,Es una coliflor,8.25,0.38,Verdulerias S.A de C.V.
+x,Calabaza,Es una calabaza,6.99,1.5,Verdulerias S.A de C.V.

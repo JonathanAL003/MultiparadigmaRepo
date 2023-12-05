@@ -1,28 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
 <form method="post">
-    <fieldset>
-        <legend>Nuevo Proveedor</legend>
+    <fieldset style="background-color: lightgray; border: 2px solid black; border-radius: 10px; width: fit-content;">
+        <legend style="background-color: black; color: white; font-size: 24px; border-radius: 10px; padding: 5px;">Nuevo Proveedor</legend>
         {{ nuevoProv.csrf_token }}
-        <div>
+        <p>
             {{ nuevoProv.nombre.label }}
             {{ nuevoProv.nombre(size = 30) }}
-        </div>
-        <div>
+        </p>
+        <p>
             {{ nuevoProv.rfc.label }}
             {{ nuevoProv.rfc(size = 30) }}
-        </div>
-        <div>
+        </p>
+        <p>
             {{ nuevoProv.telefono.label }}
             {{ nuevoProv.telefono(size = 30) }}
-        </div>
-        <div>
+        </p>
+        <p>
             {{ nuevoProv.direccion.label }}
             {{ nuevoProv.direccion(size = 30) }}
-        </div>
-        <div>
+        </p>
+        <p>
             {{ nuevoProv.enviar() }}
-        </div>
+        </p>
     </fieldset>
 </form>
 {% endblock %}

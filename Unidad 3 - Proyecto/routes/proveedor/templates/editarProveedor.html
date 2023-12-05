@@ -1,28 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
 <form method="post">
-    <fieldset>
-        <legend>Editar Proveedor</legend>
+    <fieldset style="background-color: lightgray; border: 2px solid black; border-radius: 10px; width: fit-content;">
+        <legend style="background-color: black; color: white; font-size: 24px; border-radius: 10px; padding: 5px;">Editar Proveedor</legend>
         {{ editarProv.csrf_token }}
-        <div>
+        <p>
             {{ editarProv.nombre.label }}
             {{ editarProv.nombre(size = 30) }}
-        </div>
-        <div>
+        </p>
+        <p>
             {{ editarProv.rfc.label }}
             {{ editarProv.rfc(size = 30) }}
-        </div>
-        <div>
+        </p>
+        <p>
             {{ editarProv.telefono.label }}
             {{ editarProv.telefono(size = 30) }}
-        </div>
-        <div>
+        </p>
+        <p>
             {{ editarProv.direccion.label }}
             {{ editarProv.direccion(size = 30) }}
-        </div>
-        <div>
+        </p>
+        <p>
             {{ editarProv.enviar() }}
-        </div>
+        </p>
     </fieldset>
 </form>
 {% endblock %}

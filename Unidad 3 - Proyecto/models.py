@@ -76,6 +76,7 @@ class Venta(db.Model):
     nombre_cliente = db.Column(db.String(250))
     cantidad = db.Column(db.Integer)
     precio_total = db.Column(db.Float)
+    encargado = db.Column(db.String(250))
     rel_prod=db.relationship('Producto',backref='producto')
 
 class Proveedor(db.Model):

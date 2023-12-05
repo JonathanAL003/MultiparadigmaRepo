@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/login.css')}}">
+    <link rel="icon" href="{{url_for('static', filename = 'LogoVJ.ico')}}" type="image/x-icon">
 </head>
 <body>
     <center>
@@ -27,6 +28,9 @@
             <button type="submit" id="login-btn" class="btnEnviar">Log In</button><br> <img src="" id="loading" width="50px" height="50px" style="visibility: collapse;">
         </fieldset>
     </form>
+    <div style="display: block; padding: 5px; background-color: rgb(86, 240, 86); border-radius: 5px; margin-top: 10px; width: fit-content; height: fit-content; border: 2px solid black;">
+        ¿No tienes cuenta? <a href="/sign">¡Registrate!</a>
+    </div>
     </center>
     <script>
         const loginForm = document.querySelector('#login-form')
@@ -50,9 +54,10 @@
                 })
             }).then(response => response.json())
             .then(data =>{
-                localStorage.setItem('token',data.auth_token)
+                localStorage.setItem('token', data.auth_token)
                 console.log(data)
-                localStorage.setItem('admin',data.admin)
+                localStorage.setItem('admin', data.admin)
+                localStorage.setItem('email', email)
                 window.location.href = "/main"
                 // if (data.admin) {
                 //     window.location.href = '/admin/main'

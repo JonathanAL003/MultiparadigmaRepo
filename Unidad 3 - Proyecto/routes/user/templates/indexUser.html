@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>USUARIOS</h1>
+<h1 style="color: green; background-color: white; width: fit-content; height: fit-content; border: 3px solid black; border-radius: 100px; padding: 10px;">USUARIOS</h1>
     <br>
     <fieldset class="group" style="display: block; width: fit-content;">
         <table border="1px" style="background-color: aliceblue; border-radius: 10px;">
@@ -12,7 +12,7 @@
                         </a>
                     </th>
                 </tr>
-                <tr>
+                <tr style="background-color:forestgreen; color: white;">
                     <th style="border-radius: 5px;">ID</th>
                     <th style="border-radius: 5px;">E-Mail</th>
                     <th style="border-radius: 5px;">Password</th>
@@ -29,7 +29,11 @@
                     <td style="border-radius: 5px;">{{u.email}}</td>
                     <td style="border-radius: 5px;">{{u.password}}</td>
                     <td style="border-radius: 5px;">{{u.registered_on}}</td>
-                    <td style="border-radius: 5px;">{{u.admin}}</td>
+                    {% if u.admin == True %}
+                        <td style="border-radius: 5px;">Si</td>
+                    {% else %}
+                        <td style="border-radius: 5px;">No</td>
+                    {% endif %}
                     <td style="border-radius: 5px;"><a href="/usuario/edit/{{u.email}}"><button style="border-radius: 5px;">Editar</button></a></td>
                     <td style="border-radius: 5px;"><a href="/usuario/delete/{{u.id}}"><button style="border-radius: 5px;">Eliminar</button></a></td>
                 </tr>

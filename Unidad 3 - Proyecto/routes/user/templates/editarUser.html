@@ -1,24 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
     <form method="post">
-        <fieldset>
-            <legend>Actualizar Usuario</legend>
+        <fieldset style="background-color: lightgray; border: 2px solid black; border-radius: 10px; width: fit-content;">
+            <legend style="background-color: black; color: white; font-size: 24px; border-radius: 10px; padding: 5px;">Actualizar Usuario</legend>
             {{ editUser.csrf_token }}
-            <div>
+            <p>
                 {{ editUser.email.label }}
                 {{ editUser.email(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editUser.password.label }}
                 {{ editUser.password(size = 30) }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editUser.admin.label }}
                 {{ editUser.admin }}
-            </div>
-            <div>
+            </p>
+            <p>
                 {{ editUser.enviar() }}
-            </div>
+            </p>
         </fieldset>
     </form>
 {% endblock %}
