@@ -11,6 +11,7 @@ appuser=Blueprint('appuser',__name__,template_folder="templates")
 # @appuser.route("/")
 # def index():
 #     return render_template("index.html")
+
 @appuser.route('/404')
 def Error():
     return render_template("error.html")
@@ -91,7 +92,7 @@ def UpdateUser(usuario):
 def DeleteUser(usuario):
     try:
         json = request.get_json()
-        user = User.query.filter_by(email=json["email"]).first()
+        user = User.query.filter_by(id=json["id"]).first()
         if user:
             db.session.delete(user)
             db.session.commit()
@@ -102,6 +103,9 @@ def DeleteUser(usuario):
         return jsonify({"status":500, "message":"Ha ocurrido un incidente", "error": str(ex)})
 
 @appuser.route('/')
+def Inicio():
+    return render_template('inicio.html')
+
 @appuser.route('/main')
 def main():
     try:

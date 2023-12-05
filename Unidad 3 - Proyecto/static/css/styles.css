@@ -10,7 +10,7 @@ body {
 }
 
 .sidebar {
-    /* position: fixed; */
+    position: sticky;
     top: 0;
     left: 0;
     height: 100px;
@@ -21,7 +21,7 @@ body {
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: 100%;
     grid-template-areas: 'op1 op2 op3 op4 op5 op6 op7 op8 op9 op10';
-    width: 100vw;
+    width: 100%;
 }
 
 /* #sidebar1 {

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/login.css')}}">
+    <link rel="icon" href="{{url_for('static', filename = 'LogoVJ.ico')}}" type="image/x-icon">
+    <title>Verduleria El Jonnhy</title>
+</head>
+<body>
+    <fieldset style="border: 5px solid black; border-radius: 20px; background-color: lightgray; height: 80%;">
+        <div>
+            <center>
+                <img src="{{url_for('static', filename='/LogoVJ.png')}}" width="30%" height="30%"> <br>
+                <div style="display: flex; justify-content: center;">
+                    <a href="/login"><button style="height: 40px; width: 200px; background-color: yellowgreen;">Iniciar Sesión</button></a>
+                    <a href="/sign"><button style="height: 40px; width: 200px; background-color: greenyellow;">Registrarse</button></a>
+                </div>
+                
+            </center>
+        </div>
+    </fieldset>
+</body>
+</html>
+    

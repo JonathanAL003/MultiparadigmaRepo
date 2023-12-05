@@ -1,4 +1,3 @@
 ID,Nombre,Descripcion,Precio Por Kg,Peso Por Kg,Marca
-,Remolacha,Remolacha Fresca,7.5,0.8,Verdulation
-,Chayote,Chayote del monte,13.26,0.45,Verdulerias S.A de C.V.
-,Berenjena,Berenjena fresca,6.36,0.76,Marca Patito
+,Brocoli,Brocoli agregado por JSON,8.65,1.25,Brocolis Frescos
+,Algas,Algas agregadas por JSON,6.23,0.95,Algas Del Campo
